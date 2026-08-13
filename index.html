@@ -33,7 +33,7 @@
   .nav-inner{max-width:860px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:26px;}
   .nav-name{font-family:'Source Serif 4',serif;font-weight:700;font-size:17px;margin-right:auto;color:var(--text);}
   .nav-name:hover{text-decoration:none;color:var(--accent);}
-  nav .nl{font-size:13.5px;font-weight:500;color:var(--muted);}
+  nav .nl{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);}
   nav .nl:hover{color:var(--accent);text-decoration:none;}
 
   main{max-width:860px;margin:0 auto;padding:0 24px;flex:1;width:100%;}
@@ -58,13 +58,14 @@
   .contact-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;}
   .btn{
     display:inline-flex;align-items:center;gap:6px;
-    font-size:13px;font-weight:500;padding:7px 14px;border-radius:6px;
-    border:1px solid var(--border);color:var(--text);background:#fff;
+    font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+    padding:9px 18px;border-radius:0;
+    border:1px solid var(--text);color:var(--text);background:#fff;
     transition:all .15s ease;cursor:pointer;font-family:'Inter',sans-serif;
   }
-  .btn:hover{border-color:var(--accent);color:var(--accent);text-decoration:none;background:var(--accent-bg);}
-  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;}
-  .btn.primary:hover{background:var(--accent-dark);color:#fff;}
+  .btn:hover{background:var(--text);color:#fff;text-decoration:none;}
+  .btn.primary{background:var(--text);color:#fff;}
+  .btn.primary:hover{background:#fff;color:var(--text);}
 
   /* feature: photo + bio — columns end flush */
   .feature{display:flex;gap:30px;margin-top:30px;}
