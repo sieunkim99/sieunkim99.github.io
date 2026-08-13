@@ -67,29 +67,15 @@
     font-family:'Source Serif 4',serif;font-style:italic;font-size:18px;
     color:var(--muted);text-align:center;margin-bottom:22px;
   }
-  .rq-stage{max-width:640px;margin:0 auto;perspective:900px;}
-  .rq-card{
-    position:relative;cursor:pointer;user-select:none;background:#fff;
-    border:1px solid var(--border);border-left:5px solid var(--qc,#2b4c7e);
-    border-radius:12px;padding:38px 42px 30px;
-    box-shadow:0 6px 22px rgba(26,26,26,.06);
-    transition:transform .3s ease, opacity .3s ease, border-color .3s ease, box-shadow .2s ease;
-  }
-  .rq-card:hover{box-shadow:0 10px 28px rgba(26,26,26,.1);}
-  .rq-card.slide-out{transform:translateX(-56px) rotate(-1.6deg);opacity:0;}
-  .rq-card.slide-in{transform:translateX(56px) rotate(1.6deg);opacity:0;transition:none;}
-  .rq-num{
-    font-family:'Source Serif 4',serif;font-style:italic;font-weight:600;
-    font-size:15px;color:var(--qc,#2b4c7e);margin-bottom:10px;display:block;
-  }
+  .rq-stage{max-width:640px;margin:0 auto;}
+  .rq-card{cursor:pointer;user-select:none;text-align:center;padding:8px 0;}
   .rq-text{
-    font-family:'Source Serif 4',serif;font-size:23px;font-weight:600;line-height:1.45;
+    font-family:'Source Serif 4',serif;font-size:23px;font-weight:600;line-height:1.5;
+    transition:opacity .25s ease;
   }
-  .rq-foot{display:flex;align-items:center;gap:10px;margin-top:24px;}
-  .rq-dots{display:flex;gap:6px;}
-  .rq-dot{width:7px;height:7px;border-radius:50%;background:var(--border);transition:background .25s;}
-  .rq-dot.on{background:var(--qc,#2b4c7e);}
-  .rq-hint{margin-left:auto;font-size:13px;opacity:.55;}
+  .rq-dots{display:flex;justify-content:center;gap:6px;margin-top:22px;}
+  .rq-dot{width:6px;height:6px;border-radius:50%;background:var(--border);transition:background .25s;}
+  .rq-dot.on{background:var(--text);}
 
   footer{border-top:1px solid var(--border);margin-top:auto;padding:28px 24px;text-align:center;font-size:13px;color:var(--faint);}
 
@@ -148,13 +134,10 @@
   <section class="rq-section">
     <div class="rq-kicker">things I keep wondering about…</div>
     <div class="rq-stage">
-      <div class="rq-card" id="rqCard" style="--qc:#1a1a1a;">
+      <div class="rq-card" id="rqCard">
         <div class="rq-text" id="rqText">How does interacting with AI affect people psychologically and socially?</div>
-        <div class="rq-foot">
-          <div class="rq-dots" id="rqDots">
-            <span class="rq-dot on"></span><span class="rq-dot"></span><span class="rq-dot"></span>
-          </div>
-          <span class="rq-hint">🖱️</span>
+        <div class="rq-dots" id="rqDots">
+          <span class="rq-dot on"></span><span class="rq-dot"></span><span class="rq-dot"></span>
         </div>
       </div>
     </div>
@@ -166,12 +149,9 @@
 
 <script>
   const questions=[
-    {color:"#1a1a1a",
-     text:"How does interacting with AI affect people psychologically and socially?"},
-    {color:"#1a1a1a",
-     text:"As AI moves beyond a tool to a companion, how can humans maintain healthy relationships with it?"},
-    {color:"#1a1a1a",
-     text:"What should be considered in designing AI that supports psychological and social well-being?"}
+    "How does interacting with AI affect people psychologically and socially?",
+    "As AI moves beyond a tool to a companion, how can humans maintain healthy relationships with it?",
+    "What should be considered in designing AI that supports psychological and social well-being?"
   ];
   let qi=0;
   const card=document.getElementById('rqCard');
@@ -182,19 +162,14 @@
   card.addEventListener('click',()=>{
     if(animating)return;
     animating=true;
-    card.classList.add('slide-out');
+    textEl.style.opacity=0;
     setTimeout(()=>{
       qi=(qi+1)%questions.length;
-      const q=questions[qi];
-      card.style.setProperty('--qc',q.color);
-      textEl.textContent=q.text;
+      textEl.textContent=questions[qi];
       dots.forEach((d,i)=>d.classList.toggle('on',i===qi));
-      card.classList.remove('slide-out');
-      card.classList.add('slide-in');
-      void card.offsetWidth; /* reflow so slide-in position applies */
-      card.classList.remove('slide-in');
-      setTimeout(()=>{animating=false;},320);
-    },300);
+      textEl.style.opacity=1;
+      setTimeout(()=>{animating=false;},260);
+    },250);
   });
 
   // email copy
