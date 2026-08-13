@@ -49,7 +49,7 @@
   .contact-row{display:flex;flex-wrap:wrap;gap:10px;}
 
   /* bio below hero */
-  .bio-block{margin-top:36px;}
+  .bio-block{margin-top:56px;margin-bottom:60px;}
   .bio-block p.bio{margin-bottom:16px;}
   .bio-block p.bio strong{font-weight:600;}
   .btn{
@@ -65,7 +65,7 @@
   .tag{font-size:12.5px;font-weight:500;color:#4a4a4a;background:#f4f3f0;border-radius:999px;padding:4px 13px;}
 
   /* research questions — one at a time, click to advance */
-  .rq-section{padding:64px 0 80px;}
+  .rq-section{padding:64px 0 16px;}
   .rq-kicker{
     font-family:'Source Serif 4',serif;font-style:italic;font-size:18px;
     color:var(--muted);text-align:center;margin-bottom:22px;
@@ -120,6 +120,19 @@
     </div>
   </div>
 
+  <!-- ================= RESEARCH QUESTIONS ================= -->
+  <section class="rq-section">
+    <div class="rq-kicker">things I keep wondering about…</div>
+    <div class="rq-stage">
+      <div class="rq-card" id="rqCard">
+        <div class="rq-text" id="rqText">How does interacting with AI affect people psychologically and socially?</div>
+        <div class="rq-dots" id="rqDots">
+          <span class="rq-dot on"></span><span class="rq-dot"></span><span class="rq-dot"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ================= BIO ================= -->
   <div class="bio-block">
     <p class="bio">
@@ -136,19 +149,6 @@
       <span class="tag">AI Companion</span>
     </div>
   </div>
-
-  <!-- ================= RESEARCH QUESTIONS ================= -->
-  <section class="rq-section">
-    <div class="rq-kicker">things I keep wondering about…</div>
-    <div class="rq-stage">
-      <div class="rq-card" id="rqCard">
-        <div class="rq-text" id="rqText">How does interacting with AI affect people psychologically and socially?</div>
-        <div class="rq-dots" id="rqDots">
-          <span class="rq-dot on"></span><span class="rq-dot"></span><span class="rq-dot"></span>
-        </div>
-      </div>
-    </div>
-  </section>
 
 </main>
 
