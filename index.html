@@ -13,62 +13,37 @@
     --text:#1a1a1a;
     --muted:#6b6b6b;
     --faint:#9a9a9a;
-    --accent:#2b4c7e;        /* restrained academic blue */
+    --accent:#2b4c7e;
     --accent-dark:#1e3a63;
     --accent-bg:#f1f4f8;
     --border:#e8e6e3;
-    --award:#b0620f;
-    --award-bg:#fdf3e7;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;scroll-padding-top:70px;}
+  html{scroll-behavior:smooth;}
   body{
     font-family:'Inter',-apple-system,sans-serif;
     font-size:15.5px;line-height:1.7;color:var(--text);background:var(--bg);
+    min-height:100vh;display:flex;flex-direction:column;
   }
   a{color:var(--accent);text-decoration:none;}
   a:hover{color:var(--accent-dark);text-decoration:underline;}
 
-  /* nav */
-  nav{
-    position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);
-    backdrop-filter:blur(8px);border-bottom:1px solid var(--border);
-  }
-  .nav-inner{
-    max-width:860px;margin:0 auto;padding:14px 24px;
-    display:flex;align-items:center;gap:26px;
-  }
-  .nav-name{
-    font-family:'Source Serif 4',serif;font-weight:700;font-size:17px;
-    margin-right:auto;color:var(--text);
-  }
+  nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);}
+  .nav-inner{max-width:860px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:26px;}
+  .nav-name{font-family:'Source Serif 4',serif;font-weight:700;font-size:17px;margin-right:auto;color:var(--text);}
   .nav-name:hover{text-decoration:none;color:var(--accent);}
   nav .nl{font-size:13.5px;font-weight:500;color:var(--muted);}
   nav .nl:hover{color:var(--accent);text-decoration:none;}
+  nav .nl.active{color:var(--text);}
 
-  main{max-width:860px;margin:0 auto;padding:0 24px 90px;}
-  section{padding-top:56px;}
-  h2{
-    font-family:'Inter',sans-serif;font-size:15px;font-weight:700;
-    letter-spacing:.14em;text-transform:uppercase;color:var(--text);
-    margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--border);
-  }
+  main{max-width:860px;margin:0 auto;padding:0 24px;flex:1;width:100%;}
 
   /* hero */
-  .hero{display:flex;gap:44px;align-items:flex-start;padding-top:64px;}
-  .hero-photo{
-    flex:0 0 200px;width:200px;height:240px;border-radius:4px;
-    background:#ececea;color:#c8c8c4;
-    display:flex;align-items:center;justify-content:center;
-    font-size:56px;color:#fff;overflow:hidden;
-  }
-  .hero-photo img{width:100%;height:100%;object-fit:cover;}
-  .hero h1{
-    font-family:'Source Serif 4',serif;font-size:40px;font-weight:700;line-height:1.15;
-  }
-  .hero .role{
-    font-size:16px;color:var(--muted);margin-top:6px;margin-bottom:18px;
-  }
+  .hero{display:flex;gap:44px;align-items:flex-start;padding-top:56px;}
+  .hero-photo{flex:0 0 220px;width:220px;}
+  .hero-photo img{width:100%;height:auto;display:block;border-radius:4px;}
+  .hero h1{font-family:'Source Serif 4',serif;font-size:40px;font-weight:700;line-height:1.15;}
+  .hero .role{font-size:16px;color:var(--muted);margin-top:6px;margin-bottom:18px;}
   .hero .role b{color:var(--text);font-weight:600;}
   .hero p.bio{margin-bottom:14px;}
   .hero p.bio strong{font-weight:600;}
@@ -82,115 +57,47 @@
   .btn:hover{border-color:var(--accent);color:var(--accent);text-decoration:none;background:var(--accent-bg);}
   .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;}
   .btn.primary:hover{background:var(--accent-dark);color:#fff;}
-
-  /* interests */
   .interests{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
-  .tag{
-    font-size:12.5px;font-weight:500;color:#4a4a4a;
-    background:#f4f3f0;border-radius:999px;padding:4px 13px;
-  }
+  .tag{font-size:12.5px;font-weight:500;color:#4a4a4a;background:#f4f3f0;border-radius:999px;padding:4px 13px;}
 
-  /* research vision cards */
-  .vision-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-  .vcard{
-    border:1px solid var(--border);border-radius:8px;padding:20px;
-    transition:border-color .15s ease;
+  /* research questions — one at a time, click to advance */
+  .rq-section{padding:64px 0 80px;}
+  .rq-kicker{
+    font-family:'Inter',sans-serif;font-size:13px;font-weight:700;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+    text-align:center;margin-bottom:22px;
   }
-  .vcard:hover{border-color:var(--accent);}
-  .vcard .num{
-    font-family:'Source Serif 4',serif;font-size:13px;font-weight:600;
-    color:var(--accent);letter-spacing:.08em;margin-bottom:8px;
+  .rq-stage{max-width:640px;margin:0 auto;perspective:900px;}
+  .rq-card{
+    position:relative;cursor:pointer;user-select:none;background:#fff;
+    border:1px solid var(--border);border-left:5px solid var(--qc,#2b4c7e);
+    border-radius:12px;padding:38px 42px 30px;
+    box-shadow:0 6px 22px rgba(26,26,26,.06);
+    transition:transform .3s ease, opacity .3s ease, border-color .3s ease, box-shadow .2s ease;
   }
-  .vcard p{font-size:14px;line-height:1.65;color:var(--muted);}
-  .vcard p b{color:var(--text);font-weight:600;}
+  .rq-card:hover{box-shadow:0 10px 28px rgba(26,26,26,.1);}
+  .rq-card.slide-out{transform:translateX(-56px) rotate(-1.6deg);opacity:0;}
+  .rq-card.slide-in{transform:translateX(56px) rotate(1.6deg);opacity:0;transition:none;}
+  .rq-num{
+    font-family:'Source Serif 4',serif;font-style:italic;font-weight:600;
+    font-size:15px;color:var(--qc,#2b4c7e);margin-bottom:10px;display:block;
+  }
+  .rq-text{
+    font-family:'Source Serif 4',serif;font-size:23px;font-weight:600;line-height:1.45;
+  }
+  .rq-foot{display:flex;align-items:center;gap:10px;margin-top:24px;}
+  .rq-dots{display:flex;gap:6px;}
+  .rq-dot{width:7px;height:7px;border-radius:50%;background:var(--border);transition:background .25s;}
+  .rq-dot.on{background:var(--qc,#2b4c7e);}
+  .rq-hint{margin-left:auto;font-size:12px;color:var(--faint);}
 
-  /* news */
-  .news-list{list-style:none;}
-  .news-list li{
-    display:flex;gap:20px;padding:11px 0;border-bottom:1px solid var(--border);
-  }
-  .news-list .nd{
-    flex:0 0 84px;font-size:13px;color:var(--faint);font-weight:500;padding-top:2px;
-  }
-  .news-list .nt{flex:1;font-size:14.5px;}
-  .badge-hl{
-    display:inline-block;font-size:11.5px;font-weight:600;color:var(--award);
-    background:var(--award-bg);border-radius:4px;padding:1px 8px;margin-left:6px;
-    vertical-align:1px;
-  }
-
-  /* publications */
-  .pub-note{font-size:13.5px;color:var(--muted);margin:-12px 0 24px;}
-  .pub-group{margin-bottom:10px;}
-  .pub-group h3{
-    font-family:'Source Serif 4',serif;font-size:17px;font-weight:600;
-    color:var(--muted);margin:26px 0 14px;
-  }
-  .pub{
-    display:flex;gap:18px;padding:16px 0;border-bottom:1px solid var(--border);
-  }
-  .pub .venue-chip{
-    flex:0 0 92px;text-align:center;align-self:flex-start;
-    font-size:12px;font-weight:600;color:var(--accent-dark);
-    background:var(--accent-bg);border-radius:6px;padding:8px 6px;line-height:1.3;
-  }
-  .pub .venue-chip .yr{display:block;font-weight:400;color:var(--muted);font-size:11px;}
-  .pub-body{flex:1;}
-  .pub-title{font-weight:600;font-size:15.5px;line-height:1.5;}
-  .pub-award{
-    display:inline-block;font-size:12px;font-weight:600;color:var(--award);
-    background:var(--award-bg);border-radius:4px;padding:1px 9px;margin:6px 0 0;
-  }
-  .pub-authors{font-size:13.5px;color:var(--muted);margin-top:5px;line-height:1.55;}
-  .pub-authors b{color:var(--text);font-weight:600;}
-  .pub-venue{font-size:13.5px;color:var(--muted);font-style:italic;margin-top:2px;}
-  .pub-links{margin-top:9px;display:flex;flex-wrap:wrap;gap:7px;}
-  .plink{
-    font-size:12px;font-weight:500;padding:3px 11px;border-radius:5px;
-    border:1px solid var(--border);color:var(--muted);
-  }
-  .plink:hover{border-color:var(--accent);color:var(--accent);text-decoration:none;background:var(--accent-bg);}
-
-  /* more links */
-  .more-row{
-    display:flex;gap:16px;align-items:baseline;
-    padding:14px 0;border-bottom:1px solid var(--border);font-size:15px;
-  }
-  .more-row .ml{font-weight:600;color:var(--text);white-space:nowrap;}
-  .more-row .ml:hover{color:var(--accent);}
-  .more-row .md{color:var(--muted);font-size:14px;}
-  .more-row .arrow{margin-left:auto;color:var(--faint);font-size:14px;}
-  .more-row:hover .arrow{color:var(--accent);}
-
-  /* projects */
-  .proj{padding:18px 0;border-bottom:1px solid var(--border);}
-  .proj-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;}
-  .proj-head h3{font-family:'Source Serif 4',serif;font-size:17px;font-weight:600;flex:1;}
-  .proj-period{font-size:12.5px;color:var(--faint);font-weight:500;white-space:nowrap;}
-  .proj-q{font-size:14px;color:var(--muted);margin-top:6px;line-height:1.65;}
-  .proj-q::before{content:"RQ · ";font-weight:600;color:var(--accent);font-style:normal;}
-  .proj-desc{font-size:14px;margin-top:6px;color:var(--text);line-height:1.65;}
-  .proj-out{font-size:13px;margin-top:6px;color:var(--accent-dark);font-weight:500;}
-
-  /* education */
-  .edu{display:flex;gap:20px;padding:14px 0;border-bottom:1px solid var(--border);}
-  .edu .yrs{flex:0 0 130px;font-size:13px;color:var(--faint);font-weight:500;padding-top:2px;}
-  .edu-body .school{font-weight:600;font-size:15px;}
-  .edu-body .deg{font-size:14px;color:var(--muted);margin-top:2px;line-height:1.6;}
-
-  footer{
-    border-top:1px solid var(--border);margin-top:40px;padding:28px 24px;
-    text-align:center;font-size:13px;color:var(--faint);
-  }
+  footer{border-top:1px solid var(--border);margin-top:auto;padding:28px 24px;text-align:center;font-size:13px;color:var(--faint);}
 
   @media (max-width:680px){
     .hero{flex-direction:column;gap:28px;}
-    .vision-grid{grid-template-columns:1fr;}
-    .pub{flex-direction:column;gap:8px;}
-    .pub .venue-chip{flex:none;width:fit-content;padding:4px 12px;}
-    .pub .venue-chip .yr{display:inline;margin-left:6px;}
-    .nav-inner{gap:16px;overflow-x:auto;}
-    .edu .yrs{flex:0 0 96px;}
+    .hero-photo{width:200px;}
+    .rq-card{padding:30px 26px 24px;}
+    .rq-text{font-size:19px;}
   }
 </style>
 </head>
@@ -198,16 +105,15 @@
 
 <nav>
   <div class="nav-inner">
-    <a class="nav-name" href="#top">Sieun Kim</a>
-    <a class="nl" href="#research">Research</a>
-    <a class="nl" href="#publications">Publications</a>
+    <a class="nav-name" href="index.html">Sieun Kim</a>
+    <a class="nl" href="publications.html">Publications</a>
     <a class="nl" href="projects.html">Projects</a>
-    <a class="nl" href="#education">Education</a>
+    <a class="nl" href="education.html">Education</a>
     <a class="nl" href="CV_SieunKim.pdf" target="_blank" rel="noopener">CV</a>
   </div>
 </nav>
 
-<main id="top">
+<main>
 
   <!-- ================= HERO ================= -->
   <div class="hero">
@@ -231,200 +137,66 @@
       <div class="contact-row">
         <a class="btn primary" href="mailto:sieunkim@kaist.ac.kr">✉ Email</a>
         <a class="btn" href="https://scholar.google.com/citations?user=v0rPHy4AAAAJ&hl=ko&oi=ao" target="_blank" rel="noopener">Google Scholar</a>
-        <a class="btn" href="https://brunch.co.kr/@sieunkim" target="_blank" rel="noopener">Brunch</a>
+        <a class="btn" href="https://brunch.co.kr/@sieunkim" target="_blank" rel="noopener">Essays</a>
       </div>
     </div>
   </div>
 
-  <!-- ================= RESEARCH ================= -->
-  <section id="research">
-    <h2>Research</h2>
-    <div class="vision-grid">
-      <div class="vcard">
-        <div class="num">Q1</div>
-        <p>What <b>psychological and social effects</b> does the use of AI have on people?</p>
-      </div>
-      <div class="vcard">
-        <div class="num">Q2</div>
-        <p>How can humans build <b>healthy relationships</b> with AI that is becoming a <b>companion</b> beyond a tool?</p>
-      </div>
-      <div class="vcard">
-        <div class="num">Q3</div>
-        <p>What should we consider when designing AI to have a <b>socially and psychologically healthy influence</b>?</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= PUBLICATIONS ================= -->
-  <section id="publications">
-    <h2>Publications</h2>
-
-    <div class="pub-group">
-      <h3>Conference &amp; Journal Papers</h3>
-
-      <div class="pub">
-        <div class="venue-chip">CHI<span class="yr">2026</span></div>
-        <div class="pub-body">
-          <div class="pub-title">Dark and Bright Side of Participatory Red-Teaming with Targets of Stereotyping for Eliciting Harmful Behaviors from Large Language Models</div>
-          <span class="pub-award">🏅 Best Paper Honorable Mention (Top 5%)</span>
-          <div class="pub-authors"><b>Sieun Kim</b>, Yeeun Jo, Sungmin Na, Hyunseung Lim, Eunchae Lee, Yu Min Choi, Soohyun Cho, Hwajung Hong</div>
-          <div class="pub-venue">ACM Conference on Human Factors in Computing Systems (CHI 2026)</div>
-          <div class="pub-links">
-            <a class="plink" href="https://dl.acm.org/doi/10.1145/3772318.3790820" target="_blank" rel="noopener">DOI</a>
-            <a class="plink" href="https://arxiv.org/pdf/2602.19124" target="_blank" rel="noopener">PDF</a>
+  <!-- ================= RESEARCH QUESTIONS ================= -->
+  <section class="rq-section">
+    <div class="rq-kicker">Research Questions</div>
+    <div class="rq-stage">
+      <div class="rq-card" id="rqCard" style="--qc:#2b4c7e;">
+        <span class="rq-num" id="rqNum">Question 01</span>
+        <div class="rq-text" id="rqText">How does interacting with AI affect people psychologically and socially?</div>
+        <div class="rq-foot">
+          <div class="rq-dots" id="rqDots">
+            <span class="rq-dot on"></span><span class="rq-dot"></span><span class="rq-dot"></span>
           </div>
+          <span class="rq-hint">click for the next question →</span>
         </div>
-      </div>
-
-      <div class="pub">
-        <div class="venue-chip">CHI<span class="yr">2026</span></div>
-        <div class="pub-body">
-          <div class="pub-title">Moodialogue: Transforming Emotions into Personified, Conversational Agents</div>
-          <div class="pub-authors">Sangsu Jang, <b>Sieun Kim</b>, Gahyeon Bae, Hwajung Hong</div>
-          <div class="pub-venue">ACM Conference on Human Factors in Computing Systems (CHI 2026)</div>
-          <div class="pub-links">
-            <a class="plink" href="https://dl.acm.org/doi/10.1145/3772318.3790807" target="_blank" rel="noopener">DOI</a>
-            <a class="plink" href="https://dl.acm.org/doi/pdf/10.1145/3772318.3790807" target="_blank" rel="noopener">PDF</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="pub">
-        <div class="venue-chip">JMIR<span class="yr">2025</span></div>
-        <div class="pub-body">
-          <div class="pub-title">Therapeutic Potential of Social Chatbots in Alleviating Loneliness and Social Anxiety: Quasi-Experimental Mixed Methods Study</div>
-          <div class="pub-authors">Myungsung Kim, Seonmi Lee, <b>Sieun Kim</b>, Jeong-in Heo, Sangil Lee, Yu-Bin Shin, Chul-Hyun Cho, Dooyoung Jung</div>
-          <div class="pub-venue">Journal of Medical Internet Research (JMIR)</div>
-          <div class="pub-links">
-            <a class="plink" href="https://www.jmir.org/2025/1/e65589/" target="_blank" rel="noopener">DOI</a>
-            <a class="plink" href="https://www.jmir.org/2025/1/e65589/PDF" target="_blank" rel="noopener">PDF</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="pub">
-        <div class="venue-chip">KIISE<span class="yr">2025</span></div>
-        <div class="pub-body">
-          <div class="pub-title">Toward Inclusive and Fair AI Experiences</div>
-          <div class="pub-authors">Hwajung Hong, <b>Sieun Kim</b>, Sungmin Na</div>
-          <div class="pub-venue">Communications of the Korean Institute of Information Scientists and Engineers</div>
-          <div class="pub-links">
-            <a class="plink" href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12034203" target="_blank" rel="noopener">DOI</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="pub">
-        <div class="venue-chip">Under<br>Review</div>
-        <div class="pub-body">
-          <div class="pub-title">AssurAI: Experience with Constructing Korean Socio-cultural Dataset to Discover Potential Risks of Generative AI</div>
-          <div class="pub-authors">Chae-Gyun Lim, Seung-Ho Han, EunYoung Byun, Jeongyun Han, Soohyun Cho, Eojin Joo, Heehyeon Kim, <b>Sieun Kim</b>, Juhoon Lee, Hyunsoo Lee, et al. (89 authors incl. Hwajung Hong, Juho Kim, Uichin Lee)</div>
-          <div class="pub-venue">Under review at IEEE Transactions on Computational Social Systems</div>
-          <div class="pub-links">
-            <a class="plink" href="https://arxiv.org/abs/2511.20686" target="_blank" rel="noopener">DOI</a>
-            <a class="plink" href="https://arxiv.org/pdf/2511.20686" target="_blank" rel="noopener">PDF</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="pub-group">
-      <h3>Posters &amp; Workshop Papers</h3>
-
-      <div class="pub">
-        <div class="venue-chip">CHI LBW<span class="yr">2025</span></div>
-        <div class="pub-body">
-          <div class="pub-title">Beyond the Badge: Designing Digital Mental Health Interventions for Korean Investigative Officers</div>
-          <div class="pub-authors"><b>Sieun Kim</b>, Seonmi Lee, Insu Choe, Hwajung Hong, Dooyoung Jung</div>
-          <div class="pub-venue">ACM CHI 2025, Late-Breaking Work</div>
-          <div class="pub-links">
-            <a class="plink" href="https://dl.acm.org/doi/full/10.1145/3706599.3720251" target="_blank" rel="noopener">DOI</a>
-            <a class="plink" href="https://dl.acm.org/doi/pdf/10.1145/3706599.3720251" target="_blank" rel="noopener">PDF</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="pub">
-        <div class="venue-chip">BigComp<span class="yr">2025</span></div>
-        <div class="pub-body">
-          <div class="pub-title">Ingroup and Outgroup Perceptions in Stereotypical Biases of Large Language Models: A Korean Context</div>
-          <div class="pub-authors"><b>Sieun Kim</b>, Sungmin Na, Hwajung Hong</div>
-          <div class="pub-venue">IEEE BigComp 2025 — 1st International Workshop for Multi-Modal AI Safety Benchmark (MMAISB)</div>
-          <div class="pub-links">
-            <a class="plink" href="https://bigcompu.mycafe24.com/conf2025/workshop-list.html" target="_blank" rel="noopener">Workshop</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="pub">
-        <div class="venue-chip">ISRII<span class="yr">2024</span></div>
-        <div class="pub-body">
-          <div class="pub-title">Developing Data-Driven Persona for Personalized Scenario of Behavioral Activation Therapy (BAT) Chatbot</div>
-          <div class="pub-authors"><b>Sieun Kim</b>, Inji Jung, Sangil Lee, Dooyoung Jung</div>
-          <div class="pub-venue">International Society for Research on Internet Interventions (ISRII 2024)</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= MORE ================= -->
-  <section id="projects">
-    <h2>More</h2>
-    <a class="more-row" href="projects.html">
-      <span class="ml">Projects</span>
-      <span class="md">Research projects spanning AI safety, AI companions, and digital mental health.</span>
-      <span class="arrow">→</span>
-    </a>
-  </section>
-
-  <!-- ================= EDUCATION ================= -->
-  <section id="education">
-    <h2>Education</h2>
-    <div class="edu">
-      <div class="yrs">2026 – Present</div>
-      <div class="edu-body">
-        <div class="school">Korea Advanced Institute of Science and Technology (KAIST)</div>
-        <div class="deg">M.S., Industrial Design · DxD Lab, Advisor: Prof. Hwajung Hong</div>
-      </div>
-    </div>
-    <div class="edu">
-      <div class="yrs">2023 – 2025</div>
-      <div class="edu-body">
-        <div class="school">Ulsan National Institute of Science and Technology (UNIST)</div>
-        <div class="deg">M.S., Health Science and Technology · HAI Lab, Advisor: Prof. Dooyoung Jung<br>
-        Thesis: <i>Who Stays and Who Leaves? Understanding Initial Social Chatbot Engagement through Emotional and Relational Experiences</i></div>
-      </div>
-    </div>
-    <div class="edu">
-      <div class="yrs">2018 – 2023</div>
-      <div class="edu-body">
-        <div class="school">Dankook University</div>
-        <div class="deg">B.A., Psychotherapy &amp; B.S., Software Engineering (double major)</div>
-      </div>
-    </div>
-
-    <h2 style="margin-top:44px;">Research Experience</h2>
-    <div class="edu">
-      <div class="yrs">2025 – 2026</div>
-      <div class="edu-body">
-        <div class="school">KAIST — External Researcher</div>
-        <div class="deg">Industrial Design · DxD Lab, Advisor: Prof. Hwajung Hong</div>
-      </div>
-    </div>
-    <div class="edu">
-      <div class="yrs">2024 – 2025</div>
-      <div class="edu-body">
-        <div class="school">KAIST — Research Intern</div>
-        <div class="deg">Industrial Design · DxD Lab, Advisor: Prof. Hwajung Hong</div>
       </div>
     </div>
   </section>
 
 </main>
 
-<footer>
-  © 2026 Sieun Kim · sieunkim@kaist.ac.kr · Daejeon, Republic of Korea
-</footer>
+<footer>© 2026 Sieun Kim · sieunkim@kaist.ac.kr · Daejeon, Republic of Korea</footer>
 
+<script>
+  const questions=[
+    {num:"Question 01",color:"#2b4c7e",
+     text:"How does interacting with AI affect people psychologically and socially?"},
+    {num:"Question 02",color:"#5e7d4f",
+     text:"As AI moves beyond a tool to a companion, how can humans maintain healthy relationships with it?"},
+    {num:"Question 03",color:"#b3552e",
+     text:"What should be considered in designing AI that supports psychological and social well-being?"}
+  ];
+  let qi=0;
+  const card=document.getElementById('rqCard');
+  const numEl=document.getElementById('rqNum');
+  const textEl=document.getElementById('rqText');
+  const dots=document.querySelectorAll('#rqDots .rq-dot');
+  let animating=false;
+
+  card.addEventListener('click',()=>{
+    if(animating)return;
+    animating=true;
+    card.classList.add('slide-out');
+    setTimeout(()=>{
+      qi=(qi+1)%questions.length;
+      const q=questions[qi];
+      card.style.setProperty('--qc',q.color);
+      numEl.textContent=q.num;
+      textEl.textContent=q.text;
+      dots.forEach((d,i)=>d.classList.toggle('on',i===qi));
+      card.classList.remove('slide-out');
+      card.classList.add('slide-in');
+      void card.offsetWidth; /* reflow so slide-in position applies */
+      card.classList.remove('slide-in');
+      setTimeout(()=>{animating=false;},320);
+    },300);
+  });
+</script>
 </body>
 </html>

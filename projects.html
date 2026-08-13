@@ -35,7 +35,7 @@
   h1{font-family:'Source Serif 4',serif;font-size:34px;font-weight:700;padding-top:56px;margin-bottom:8px;}
   .page-dek{font-size:15px;color:var(--muted);margin-bottom:36px;}
 
-  .proj{padding:22px 0;border-bottom:1px solid var(--border);}
+  .proj{padding:24px 0;border-bottom:1px solid var(--border);}
   .proj-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;}
   .proj-head h3{font-family:'Source Serif 4',serif;font-size:18px;font-weight:600;flex:1;line-height:1.4;}
   .proj-period{font-size:12.5px;color:var(--faint);font-weight:500;white-space:nowrap;}
@@ -44,9 +44,31 @@
     border-radius:4px;padding:2px 8px;vertical-align:2px;
   }
   .proj-desc{font-size:14px;margin-top:8px;color:#3a3a3a;line-height:1.7;}
-  .proj ul{margin:8px 0 0 20px;font-size:14px;color:#3a3a3a;line-height:1.7;}
-  .proj ul li{margin-bottom:4px;}
-  .proj-out{font-size:13px;margin-top:10px;color:var(--accent);font-weight:500;}
+
+  /* my role toggle */
+  details.role{margin-top:12px;}
+  details.role summary{
+    list-style:none;display:inline-flex;align-items:center;gap:6px;cursor:pointer;
+    font-size:12.5px;font-weight:600;color:var(--accent);
+    border:1px solid var(--border);border-radius:6px;padding:5px 14px;
+    transition:all .15s ease;user-select:none;
+  }
+  details.role summary::-webkit-details-marker{display:none;}
+  details.role summary::after{content:"▾";font-size:11px;transition:transform .2s ease;}
+  details.role[open] summary::after{transform:rotate(180deg);}
+  details.role summary:hover{border-color:var(--accent);background:var(--accent-bg);}
+  details.role ul{margin:12px 0 0 20px;font-size:14px;color:#3a3a3a;line-height:1.7;}
+  details.role ul li{margin-bottom:4px;}
+
+  /* related publications */
+  .rel-pubs{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px;align-items:center;}
+  .rel-label{font-size:12px;font-weight:600;color:var(--faint);letter-spacing:.06em;text-transform:uppercase;margin-right:2px;}
+  .rel-chip{
+    font-size:12px;font-weight:500;padding:3px 11px;border-radius:5px;
+    border:1px solid var(--border);color:var(--muted);
+  }
+  a.rel-chip:hover{border-color:var(--accent);color:var(--accent);text-decoration:none;background:var(--accent-bg);}
+  span.rel-chip{background:#f7f6f4;}
 
   footer{border-top:1px solid var(--border);margin-top:40px;padding:28px 24px;text-align:center;font-size:13px;color:var(--faint);}
 </style>
@@ -56,9 +78,10 @@
 <nav>
   <div class="nav-inner">
     <a class="nav-name" href="index.html">Sieun Kim</a>
-    <a class="nl" href="index.html">Home</a>
+    <a class="nl" href="publications.html">Publications</a>
     <a class="nl active" href="projects.html">Projects</a>
-    <a class="nl" href="index.html#publications">Publications</a>
+    <a class="nl" href="education.html">Education</a>
+    <a class="nl" href="CV_SieunKim.pdf" target="_blank" rel="noopener">CV</a>
   </div>
 </nav>
 
@@ -69,73 +92,110 @@
   <div class="proj">
     <div class="proj-head"><h3>Establishing Safeguards for Adolescents Based on AI Usage Characteristics (NIA) <span class="ongoing-badge">Ongoing</span></h3><span class="proj-period">2026 – Present</span></div>
     <p class="proj-desc">National project (National Information Society Agency) developing youth-centered response strategies for adolescent AI use, spanning AI character platforms, AI literacy education, and AI companion relationships.</p>
-    <ul>
-      <li>Designing a qualitative study of adolescent creators on AI character platforms (e.g., Zeta) to propose youth-centered safety design directions</li>
-      <li>Proposing an AI literacy training program for school counselors that reframes red-teaming protocols into safe, simulation-based workshop modules</li>
-      <li>Analyzing 4-week conversation logs and follow-up interviews of new users of the AI companion "Luda" to understand parasocial relationship formation</li>
-    </ul>
+    <details class="role">
+      <summary>My Role</summary>
+      <ul>
+        <li>Designing a qualitative study of adolescent creators on AI character platforms (e.g., Zeta) to propose youth-centered safety design directions</li>
+        <li>Proposing an AI literacy training program for school counselors that reframes red-teaming protocols into safe, simulation-based workshop modules</li>
+        <li>Analyzing 4-week conversation logs and follow-up interviews of new users of the AI companion "Luda" to understand parasocial relationship formation</li>
+      </ul>
+    </details>
   </div>
 
   <div class="proj">
     <div class="proj-head"><h3>NAVER — AI Human Value Alignment <span class="ongoing-badge">Ongoing</span></h3><span class="proj-period">2026 – Present</span></div>
     <p class="proj-desc">Exploring evaluation metrics for AI technologies aligned with human values.</p>
-    <ul>
-      <li>Proposed how behavioral indicators of a shopping agent should be designed and evaluated to maximize not only the utilitarian but also the hedonic value of shopping experiences</li>
-      <li>Built the project's academic framework and led external communication</li>
-    </ul>
+    <details class="role">
+      <summary>My Role</summary>
+      <ul>
+        <li>Proposed how behavioral indicators of a shopping agent should be designed and evaluated to maximize not only the utilitarian but also the hedonic value of shopping experiences</li>
+        <li>Built the project's academic framework and led external communication</li>
+      </ul>
+    </details>
   </div>
 
   <div class="proj">
     <div class="proj-head"><h3>Safety Benchmark Dataset for Generative AI (TTA)</h3><span class="proj-period">2025</span></div>
     <p class="proj-desc">Constructed a large-scale Korean multimodal benchmark dataset for evaluating generative AI safety.</p>
-    <ul>
-      <li>Constructed benchmark data for the stereotypical bias risk category through red-teaming</li>
-      <li>Designed and conducted large-scale survey research (n=390), analyzing perceived harm experienced by stereotype targets vs. out-groups</li>
-      <li>Led an experimental study on psychological harm experienced by targets during participatory red-teaming</li>
-    </ul>
-    <p class="proj-out">→ CHI 2026 (Best Paper Honorable Mention) · BigComp 2025 workshop · KIISE article · AssurAI dataset</p>
+    <details class="role">
+      <summary>My Role</summary>
+      <ul>
+        <li>Constructed benchmark data for the stereotypical bias risk category through red-teaming</li>
+        <li>Designed and conducted large-scale survey research (n=390), analyzing perceived harm experienced by stereotype targets vs. out-groups</li>
+        <li>Led an experimental study on psychological harm experienced by targets during participatory red-teaming</li>
+      </ul>
+    </details>
+    <div class="rel-pubs">
+      <span class="rel-label">Publications</span>
+      <a class="rel-chip" href="https://dl.acm.org/doi/10.1145/3772318.3790820" target="_blank" rel="noopener">CHI 2026</a>
+      <a class="rel-chip" href="https://bigcompu.mycafe24.com/conf2025/workshop-list.html" target="_blank" rel="noopener">BigComp 2025 Workshop</a>
+      <a class="rel-chip" href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12034203" target="_blank" rel="noopener">KIISE</a>
+      <a class="rel-chip" href="https://arxiv.org/abs/2511.20686" target="_blank" rel="noopener">AssurAI Dataset</a>
+    </div>
   </div>
 
   <div class="proj">
     <div class="proj-head"><h3>Police Officer-Tailored Health Management Platform</h3><span class="proj-period">2023 – 2024</span></div>
     <p class="proj-desc">Development of the mental health module for the official Korean National Police Agency health management app, focusing on profession-specific stressors and needs.</p>
-    <ul>
-      <li>Led team design for the mental health module; bridged design and development teams</li>
-      <li>Interviewed 19 police investigators at Yongsan Police Station; qualitative analysis for tailored DMHI design recommendations</li>
-      <li>Guided psychological counseling chatbot development based on interview insights</li>
-    </ul>
-    <p class="proj-out">→ CHI 2025 LBW</p>
+    <details class="role">
+      <summary>My Role</summary>
+      <ul>
+        <li>Led team design for the mental health module; bridged design and development teams</li>
+        <li>Interviewed 19 police investigators at Yongsan Police Station; qualitative analysis for tailored DMHI design recommendations</li>
+        <li>Guided psychological counseling chatbot development based on interview insights</li>
+      </ul>
+    </details>
+    <div class="rel-pubs">
+      <span class="rel-label">Publications</span>
+      <a class="rel-chip" href="https://dl.acm.org/doi/full/10.1145/3706599.3720251" target="_blank" rel="noopener">CHI 2025 LBW</a>
+    </div>
   </div>
 
   <div class="proj">
     <div class="proj-head"><h3>Psychological Effects and Acceptance of Social Chatbot 'Luda'</h3><span class="proj-period">2023 – 2024</span></div>
     <p class="proj-desc">Exploring the therapeutic potential of the social chatbot 'Luda Lee'.</p>
-    <ul>
-      <li>Designed a 4-week experimental study exploring psychological experiences of social chatbot users</li>
-      <li>Recruited and managed 190 participants throughout the study period</li>
-      <li>Conducted and analyzed interviews with 30 participants</li>
-    </ul>
-    <p class="proj-out">→ JMIR 2025 · Master's thesis</p>
+    <details class="role">
+      <summary>My Role</summary>
+      <ul>
+        <li>Designed a 4-week experimental study exploring psychological experiences of social chatbot users</li>
+        <li>Recruited and managed 190 participants throughout the study period</li>
+        <li>Conducted and analyzed interviews with 30 participants</li>
+      </ul>
+    </details>
+    <div class="rel-pubs">
+      <span class="rel-label">Publications</span>
+      <a class="rel-chip" href="https://www.jmir.org/2025/1/e65589/" target="_blank" rel="noopener">JMIR 2025</a>
+      <span class="rel-chip">Master's Thesis</span>
+    </div>
   </div>
 
   <div class="proj">
     <div class="proj-head"><h3>Digital Phenotype-Based Real-Time Mental Health Monitoring Platform</h3><span class="proj-period">2023 – 2024</span></div>
     <p class="proj-desc">Development of an AI early detection system using digital phenotyping data from smartphones and wearables.</p>
-    <ul>
-      <li>Designed the data-collection experiment and psychological survey protocols; managed data from 23 participants</li>
-      <li>Designed personalized chatbot personas using ChatGPT based on user digital phenotype clusters</li>
-      <li>Proposed a chatbot design that automates the behavioral-tracking component of Behavioral Activation Therapy, reducing user burden</li>
-    </ul>
-    <p class="proj-out">→ ISRII 2024 poster</p>
+    <details class="role">
+      <summary>My Role</summary>
+      <ul>
+        <li>Designed the data-collection experiment and psychological survey protocols; managed data from 23 participants</li>
+        <li>Designed personalized chatbot personas using ChatGPT based on user digital phenotype clusters</li>
+        <li>Proposed a chatbot design that automates the behavioral-tracking component of Behavioral Activation Therapy, reducing user burden</li>
+      </ul>
+    </details>
+    <div class="rel-pubs">
+      <span class="rel-label">Publications</span>
+      <span class="rel-chip">ISRII 2024 Poster</span>
+    </div>
   </div>
 
   <div class="proj">
     <div class="proj-head"><h3>VR Exposure Therapy for Anxiety</h3><span class="proj-period">2023</span></div>
     <p class="proj-desc">Exploratory study investigating counselors' perceptions and stakeholder perspectives on implementing VR exposure therapy in clinical settings.</p>
-    <ul>
-      <li>Conducted and analyzed interviews with counselors on VR technology adoption in counseling settings</li>
-      <li>Facilitated a stakeholder workshop with VR developers, program-planning artists, medical professionals, and designers</li>
-    </ul>
+    <details class="role">
+      <summary>My Role</summary>
+      <ul>
+        <li>Conducted and analyzed interviews with counselors on VR technology adoption in counseling settings</li>
+        <li>Facilitated a stakeholder workshop with VR developers, program-planning artists, medical professionals, and designers</li>
+      </ul>
+    </details>
   </div>
 </main>
 

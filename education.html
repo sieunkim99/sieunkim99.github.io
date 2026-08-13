@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Education — Sieun Kim</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --text:#1a1a1a;
+    --muted:#6b6b6b;
+    --faint:#9a9a9a;
+    --accent:#2b4c7e;
+    --accent-dark:#1e3a63;
+    --accent-bg:#f1f4f8;
+    --border:#e8e6e3;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;scroll-padding-top:70px;}
+  body{font-family:'Inter',-apple-system,sans-serif;font-size:15.5px;line-height:1.7;color:var(--text);background:var(--bg);}
+  a{color:var(--accent);text-decoration:none;}
+  a:hover{color:var(--accent-dark);text-decoration:underline;}
+
+  nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);}
+  .nav-inner{max-width:860px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:26px;}
+  .nav-name{font-family:'Source Serif 4',serif;font-weight:700;font-size:17px;margin-right:auto;color:var(--text);}
+  .nav-name:hover{text-decoration:none;color:var(--accent);}
+  nav .nl{font-size:13.5px;font-weight:500;color:var(--muted);}
+  nav .nl:hover{color:var(--accent);text-decoration:none;}
+  nav .nl.active{color:var(--text);}
+
+  main{max-width:860px;margin:0 auto;padding:0 24px 90px;}
+  h1{font-family:'Source Serif 4',serif;font-size:34px;font-weight:700;padding-top:56px;margin-bottom:8px;}
+  .page-dek{font-size:15px;color:var(--muted);margin-bottom:24px;}
+
+  h2{
+    font-family:'Inter',sans-serif;font-size:14px;font-weight:700;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+    margin:36px 0 6px;padding-bottom:10px;border-bottom:1px solid var(--border);
+  }
+
+  .edu{display:flex;gap:20px;padding:16px 0;border-bottom:1px solid var(--border);}
+  .edu .yrs{flex:0 0 130px;font-size:13px;color:var(--faint);font-weight:500;padding-top:2px;}
+  .edu-body .school{font-weight:600;font-size:15px;}
+  .edu-body .deg{font-size:14px;color:var(--muted);margin-top:2px;line-height:1.6;}
+
+  footer{border-top:1px solid var(--border);margin-top:40px;padding:28px 24px;text-align:center;font-size:13px;color:var(--faint);}
+
+  @media (max-width:680px){
+    .edu{flex-direction:column;gap:2px;}
+    .edu .yrs{flex:none;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-name" href="index.html">Sieun Kim</a>
+    <a class="nl" href="publications.html">Publications</a>
+    <a class="nl" href="projects.html">Projects</a>
+    <a class="nl active" href="education.html">Education</a>
+    <a class="nl" href="CV_SieunKim.pdf" target="_blank" rel="noopener">CV</a>
+  </div>
+</nav>
+
+<main>
+  <h1>Education</h1>
+  <p class="page-dek">Academic background and research experience.</p>
+
+  <h2>Education</h2>
+  <div class="edu">
+    <div class="yrs">2026 – Present</div>
+    <div class="edu-body">
+      <div class="school">Korea Advanced Institute of Science and Technology (KAIST)</div>
+      <div class="deg">M.S., Industrial Design · <a href="https://dxd-lab.github.io/" target="_blank" rel="noopener">DxD Lab</a>, Advisor: Prof. Hwajung Hong</div>
+    </div>
+  </div>
+  <div class="edu">
+    <div class="yrs">2023 – 2025</div>
+    <div class="edu-body">
+      <div class="school">Ulsan National Institute of Science and Technology (UNIST)</div>
+      <div class="deg">M.S., Health Science and Technology · HAI Lab, Advisor: Prof. Dooyoung Jung<br>
+      Thesis: <i>Who Stays and Who Leaves? Understanding Initial Social Chatbot Engagement through Emotional and Relational Experiences</i></div>
+    </div>
+  </div>
+  <div class="edu">
+    <div class="yrs">2018 – 2023</div>
+    <div class="edu-body">
+      <div class="school">Dankook University</div>
+      <div class="deg">B.A., Psychotherapy &amp; B.S., Software Engineering (double major)</div>
+    </div>
+  </div>
+
+  <h2>Research Experience</h2>
+  <div class="edu">
+    <div class="yrs">2025 – 2026</div>
+    <div class="edu-body">
+      <div class="school">KAIST — External Researcher</div>
+      <div class="deg">Industrial Design · DxD Lab, Advisor: Prof. Hwajung Hong</div>
+    </div>
+  </div>
+  <div class="edu">
+    <div class="yrs">2024 – 2025</div>
+    <div class="edu-body">
+      <div class="school">KAIST — Research Intern</div>
+      <div class="deg">Industrial Design · DxD Lab, Advisor: Prof. Hwajung Hong</div>
+    </div>
+  </div>
+</main>
+
+<footer>© 2026 Sieun Kim · sieunkim@kaist.ac.kr · Daejeon, Republic of Korea</footer>
+
+</body>
+</html>

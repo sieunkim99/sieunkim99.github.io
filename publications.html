@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Publications — Sieun Kim</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --text:#1a1a1a;
+    --muted:#6b6b6b;
+    --faint:#9a9a9a;
+    --accent:#2b4c7e;
+    --accent-dark:#1e3a63;
+    --accent-bg:#f1f4f8;
+    --border:#e8e6e3;
+    --award:#b0620f;
+    --award-bg:#fdf3e7;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;scroll-padding-top:70px;}
+  body{font-family:'Inter',-apple-system,sans-serif;font-size:15.5px;line-height:1.7;color:var(--text);background:var(--bg);}
+  a{color:var(--accent);text-decoration:none;}
+  a:hover{color:var(--accent-dark);text-decoration:underline;}
+
+  nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);}
+  .nav-inner{max-width:860px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:26px;}
+  .nav-name{font-family:'Source Serif 4',serif;font-weight:700;font-size:17px;margin-right:auto;color:var(--text);}
+  .nav-name:hover{text-decoration:none;color:var(--accent);}
+  nav .nl{font-size:13.5px;font-weight:500;color:var(--muted);}
+  nav .nl:hover{color:var(--accent);text-decoration:none;}
+  nav .nl.active{color:var(--text);}
+
+  main{max-width:860px;margin:0 auto;padding:0 24px 90px;}
+  h1{font-family:'Source Serif 4',serif;font-size:34px;font-weight:700;padding-top:56px;margin-bottom:8px;}
+  .page-dek{font-size:15px;color:var(--muted);margin-bottom:24px;}
+
+  .pub-group h3{
+    font-family:'Inter',sans-serif;font-size:14px;font-weight:700;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+    margin:36px 0 6px;padding-bottom:10px;border-bottom:1px solid var(--border);
+  }
+  .pub{display:flex;gap:18px;padding:16px 0;border-bottom:1px solid var(--border);}
+  .pub .venue-chip{
+    flex:0 0 92px;text-align:center;align-self:flex-start;
+    font-size:12px;font-weight:600;color:var(--accent-dark);
+    background:var(--accent-bg);border-radius:6px;padding:8px 6px;line-height:1.3;
+  }
+  .pub .venue-chip .yr{display:block;font-weight:400;color:var(--muted);font-size:11px;}
+  .pub-body{flex:1;}
+  .pub-title{font-weight:600;font-size:15.5px;line-height:1.5;}
+  .pub-award{
+    display:inline-block;font-size:12px;font-weight:600;color:var(--award);
+    background:var(--award-bg);border-radius:4px;padding:1px 9px;margin:6px 0 0;
+  }
+  .pub-authors{font-size:13.5px;color:var(--muted);margin-top:5px;line-height:1.55;}
+  .pub-authors b{color:var(--text);font-weight:600;}
+  .pub-venue{font-size:13.5px;color:var(--muted);font-style:italic;margin-top:2px;}
+  .pub-links{margin-top:9px;display:flex;flex-wrap:wrap;gap:7px;}
+  .plink{
+    font-size:12px;font-weight:500;padding:3px 11px;border-radius:5px;
+    border:1px solid var(--border);color:var(--muted);
+  }
+  .plink:hover{border-color:var(--accent);color:var(--accent);text-decoration:none;background:var(--accent-bg);}
+
+  footer{border-top:1px solid var(--border);margin-top:40px;padding:28px 24px;text-align:center;font-size:13px;color:var(--faint);}
+
+  @media (max-width:680px){
+    .pub{flex-direction:column;gap:8px;}
+    .pub .venue-chip{flex:none;width:fit-content;padding:4px 12px;}
+    .pub .venue-chip .yr{display:inline;margin-left:6px;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-name" href="index.html">Sieun Kim</a>
+    <a class="nl active" href="publications.html">Publications</a>
+    <a class="nl" href="projects.html">Projects</a>
+    <a class="nl" href="education.html">Education</a>
+    <a class="nl" href="CV_SieunKim.pdf" target="_blank" rel="noopener">CV</a>
+  </div>
+</nav>
+
+<main>
+  <h1>Publications</h1>
+  <p class="page-dek">Peer-reviewed papers, posters, and workshop papers.</p>
+
+  <div class="pub-group">
+    <h3>Conference &amp; Journal Papers</h3>
+
+    <div class="pub">
+      <div class="venue-chip">CHI<span class="yr">2026</span></div>
+      <div class="pub-body">
+        <div class="pub-title">Dark and Bright Side of Participatory Red-Teaming with Targets of Stereotyping for Eliciting Harmful Behaviors from Large Language Models</div>
+        <span class="pub-award">🏅 Best Paper Honorable Mention (Top 5%)</span>
+        <div class="pub-authors"><b>Sieun Kim</b>, Yeeun Jo, Sungmin Na, Hyunseung Lim, Eunchae Lee, Yu Min Choi, Soohyun Cho, Hwajung Hong</div>
+        <div class="pub-venue">ACM Conference on Human Factors in Computing Systems (CHI 2026)</div>
+        <div class="pub-links">
+          <a class="plink" href="https://dl.acm.org/doi/10.1145/3772318.3790820" target="_blank" rel="noopener">DOI</a>
+          <a class="plink" href="https://arxiv.org/pdf/2602.19124" target="_blank" rel="noopener">PDF</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="venue-chip">CHI<span class="yr">2026</span></div>
+      <div class="pub-body">
+        <div class="pub-title">Moodialogue: Transforming Emotions into Personified, Conversational Agents</div>
+        <div class="pub-authors">Sangsu Jang, <b>Sieun Kim</b>, Gahyeon Bae, Hwajung Hong</div>
+        <div class="pub-venue">ACM Conference on Human Factors in Computing Systems (CHI 2026)</div>
+        <div class="pub-links">
+          <a class="plink" href="https://dl.acm.org/doi/10.1145/3772318.3790807" target="_blank" rel="noopener">DOI</a>
+          <a class="plink" href="https://dl.acm.org/doi/pdf/10.1145/3772318.3790807" target="_blank" rel="noopener">PDF</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="venue-chip">JMIR<span class="yr">2025</span></div>
+      <div class="pub-body">
+        <div class="pub-title">Therapeutic Potential of Social Chatbots in Alleviating Loneliness and Social Anxiety: Quasi-Experimental Mixed Methods Study</div>
+        <div class="pub-authors">Myungsung Kim, Seonmi Lee, <b>Sieun Kim</b>, Jeong-in Heo, Sangil Lee, Yu-Bin Shin, Chul-Hyun Cho, Dooyoung Jung</div>
+        <div class="pub-venue">Journal of Medical Internet Research (JMIR)</div>
+        <div class="pub-links">
+          <a class="plink" href="https://www.jmir.org/2025/1/e65589/" target="_blank" rel="noopener">DOI</a>
+          <a class="plink" href="https://www.jmir.org/2025/1/e65589/PDF" target="_blank" rel="noopener">PDF</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="venue-chip">KIISE<span class="yr">2025</span></div>
+      <div class="pub-body">
+        <div class="pub-title">Toward Inclusive and Fair AI Experiences</div>
+        <div class="pub-authors">Hwajung Hong, <b>Sieun Kim</b>, Sungmin Na</div>
+        <div class="pub-venue">Communications of the Korean Institute of Information Scientists and Engineers</div>
+        <div class="pub-links">
+          <a class="plink" href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12034203" target="_blank" rel="noopener">DOI</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="venue-chip">Under<br>Review</div>
+      <div class="pub-body">
+        <div class="pub-title">AssurAI: Experience with Constructing Korean Socio-cultural Dataset to Discover Potential Risks of Generative AI</div>
+        <div class="pub-authors">Chae-Gyun Lim, Seung-Ho Han, EunYoung Byun, Jeongyun Han, Soohyun Cho, Eojin Joo, Heehyeon Kim, <b>Sieun Kim</b>, Juhoon Lee, Hyunsoo Lee, et al. (89 authors incl. Hwajung Hong, Juho Kim, Uichin Lee)</div>
+        <div class="pub-venue">Under review at IEEE Transactions on Computational Social Systems</div>
+        <div class="pub-links">
+          <a class="plink" href="https://arxiv.org/abs/2511.20686" target="_blank" rel="noopener">DOI</a>
+          <a class="plink" href="https://arxiv.org/pdf/2511.20686" target="_blank" rel="noopener">PDF</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pub-group">
+    <h3>Posters &amp; Workshop Papers</h3>
+
+    <div class="pub">
+      <div class="venue-chip">CHI LBW<span class="yr">2025</span></div>
+      <div class="pub-body">
+        <div class="pub-title">Beyond the Badge: Designing Digital Mental Health Interventions for Korean Investigative Officers</div>
+        <div class="pub-authors"><b>Sieun Kim</b>, Seonmi Lee, Insu Choe, Hwajung Hong, Dooyoung Jung</div>
+        <div class="pub-venue">ACM CHI 2025, Late-Breaking Work</div>
+        <div class="pub-links">
+          <a class="plink" href="https://dl.acm.org/doi/full/10.1145/3706599.3720251" target="_blank" rel="noopener">DOI</a>
+          <a class="plink" href="https://dl.acm.org/doi/pdf/10.1145/3706599.3720251" target="_blank" rel="noopener">PDF</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="venue-chip">BigComp<span class="yr">2025</span></div>
+      <div class="pub-body">
+        <div class="pub-title">Ingroup and Outgroup Perceptions in Stereotypical Biases of Large Language Models: A Korean Context</div>
+        <div class="pub-authors"><b>Sieun Kim</b>, Sungmin Na, Hwajung Hong</div>
+        <div class="pub-venue">IEEE BigComp 2025 — 1st International Workshop for Multi-Modal AI Safety Benchmark (MMAISB)</div>
+        <div class="pub-links">
+          <a class="plink" href="https://bigcompu.mycafe24.com/conf2025/workshop-list.html" target="_blank" rel="noopener">Workshop</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="venue-chip">ISRII<span class="yr">2024</span></div>
+      <div class="pub-body">
+        <div class="pub-title">Developing Data-Driven Persona for Personalized Scenario of Behavioral Activation Therapy (BAT) Chatbot</div>
+        <div class="pub-authors"><b>Sieun Kim</b>, Inji Jung, Sangil Lee, Dooyoung Jung</div>
+        <div class="pub-venue">International Society for Research on Internet Interventions (ISRII 2024)</div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>© 2026 Sieun Kim · sieunkim@kaist.ac.kr · Daejeon, Republic of Korea</footer>
+
+</body>
+</html>
