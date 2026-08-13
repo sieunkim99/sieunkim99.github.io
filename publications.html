@@ -16,8 +16,6 @@
     --accent-dark:#000000;
     --accent-bg:#f2f2f0;
     --border:#e8e6e3;
-    --award:#1a1a1a;
-    --award-bg:#f2f2f0;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;scroll-padding-top:70px;}
@@ -35,43 +33,25 @@
 
   main{max-width:860px;margin:0 auto;padding:0 24px 90px;}
   h1{font-family:'Source Serif 4',serif;font-size:34px;font-weight:700;padding-top:56px;margin-bottom:8px;}
-  .page-dek{font-size:15px;color:var(--muted);margin-bottom:24px;}
 
-  .pub-group h3{
-    font-family:'Inter',sans-serif;font-size:14px;font-weight:700;
-    letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
-    margin:36px 0 6px;padding-bottom:10px;border-bottom:1px solid var(--border);
+  .year{
+    font-size:16px;font-weight:700;margin-top:40px;
+    padding-bottom:8px;border-bottom:1px solid #cfcdc9;
   }
-  .pub{display:flex;gap:18px;padding:16px 0;border-bottom:1px solid var(--border);}
-  .pub .venue-chip{
-    flex:0 0 92px;text-align:center;align-self:flex-start;
-    font-size:12px;font-weight:600;color:var(--accent-dark);
-    background:var(--accent-bg);border-radius:6px;padding:8px 6px;line-height:1.3;
+  .entry{padding:20px 0 4px;}
+  .etitle{font-weight:600;font-size:15.5px;line-height:1.5;}
+  .eauthors{font-size:13.5px;color:var(--muted);margin-top:3px;line-height:1.6;}
+  .eauthors .me{text-decoration:underline;text-underline-offset:2px;}
+  .emeta{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:6px;}
+  .evenue{font-size:13px;color:var(--text);font-weight:500;}
+  .elink{
+    font-size:11.5px;font-weight:500;padding:1px 9px;border-radius:4px;
+    border:1px solid var(--border);color:var(--muted);background:#fafaf8;
   }
-  .pub .venue-chip .yr{display:block;font-weight:400;color:var(--muted);font-size:11px;}
-  .pub-body{flex:1;}
-  .pub-title{font-weight:600;font-size:15.5px;line-height:1.5;}
-  .pub-award{
-    display:inline-block;font-size:12px;font-weight:600;color:var(--award);
-    background:var(--award-bg);border-radius:4px;padding:1px 9px;margin:6px 0 0;
-  }
-  .pub-authors{font-size:13.5px;color:var(--muted);margin-top:5px;line-height:1.55;}
-  .pub-authors b{color:var(--text);font-weight:600;}
-  .pub-venue{font-size:13.5px;color:var(--muted);font-style:italic;margin-top:2px;}
-  .pub-links{margin-top:9px;display:flex;flex-wrap:wrap;gap:7px;}
-  .plink{
-    font-size:12px;font-weight:500;padding:3px 11px;border-radius:5px;
-    border:1px solid var(--border);color:var(--muted);
-  }
-  .plink:hover{border-color:var(--accent);color:var(--accent);text-decoration:none;background:var(--accent-bg);}
+  .elink:hover{border-color:var(--accent);color:var(--accent);text-decoration:none;background:var(--accent-bg);}
+  .eaward{font-size:12.5px;color:var(--muted);}
 
   footer{border-top:1px solid var(--border);margin-top:40px;padding:28px 24px;text-align:center;font-size:13px;color:var(--faint);}
-
-  @media (max-width:680px){
-    .pub{flex-direction:column;gap:8px;}
-    .pub .venue-chip{flex:none;width:fit-content;padding:4px 12px;}
-    .pub .venue-chip .yr{display:inline;margin-left:6px;}
-  }
 </style>
 </head>
 <body>
@@ -88,112 +68,89 @@
 
 <main>
   <h1>Publications</h1>
-  <p class="page-dek">Peer-reviewed papers, posters, and workshop papers.</p>
 
-  <div class="pub-group">
-    <h3>Conference &amp; Journal Papers</h3>
+  <div class="year">Under Review</div>
 
-    <div class="pub">
-      <div class="venue-chip">CHI<span class="yr">2026</span></div>
-      <div class="pub-body">
-        <div class="pub-title">Dark and Bright Side of Participatory Red-Teaming with Targets of Stereotyping for Eliciting Harmful Behaviors from Large Language Models</div>
-        <span class="pub-award">🏅 Best Paper Honorable Mention (Top 5%)</span>
-        <div class="pub-authors"><b>Sieun Kim</b>, Yeeun Jo, Sungmin Na, Hyunseung Lim, Eunchae Lee, Yu Min Choi, Soohyun Cho, Hwajung Hong</div>
-        <div class="pub-venue">ACM Conference on Human Factors in Computing Systems (CHI 2026)</div>
-        <div class="pub-links">
-          <a class="plink" href="https://dl.acm.org/doi/10.1145/3772318.3790820" target="_blank" rel="noopener">DOI</a>
-          <a class="plink" href="https://arxiv.org/pdf/2602.19124" target="_blank" rel="noopener">PDF</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="pub">
-      <div class="venue-chip">CHI<span class="yr">2026</span></div>
-      <div class="pub-body">
-        <div class="pub-title">Moodialogue: Transforming Emotions into Personified, Conversational Agents</div>
-        <div class="pub-authors">Sangsu Jang, <b>Sieun Kim</b>, Gahyeon Bae, Hwajung Hong</div>
-        <div class="pub-venue">ACM Conference on Human Factors in Computing Systems (CHI 2026)</div>
-        <div class="pub-links">
-          <a class="plink" href="https://dl.acm.org/doi/10.1145/3772318.3790807" target="_blank" rel="noopener">DOI</a>
-          <a class="plink" href="https://dl.acm.org/doi/pdf/10.1145/3772318.3790807" target="_blank" rel="noopener">PDF</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="pub">
-      <div class="venue-chip">JMIR<span class="yr">2025</span></div>
-      <div class="pub-body">
-        <div class="pub-title">Therapeutic Potential of Social Chatbots in Alleviating Loneliness and Social Anxiety: Quasi-Experimental Mixed Methods Study</div>
-        <div class="pub-authors">Myungsung Kim, Seonmi Lee, <b>Sieun Kim</b>, Jeong-in Heo, Sangil Lee, Yu-Bin Shin, Chul-Hyun Cho, Dooyoung Jung</div>
-        <div class="pub-venue">Journal of Medical Internet Research (JMIR)</div>
-        <div class="pub-links">
-          <a class="plink" href="https://www.jmir.org/2025/1/e65589/" target="_blank" rel="noopener">DOI</a>
-          <a class="plink" href="https://www.jmir.org/2025/1/e65589/PDF" target="_blank" rel="noopener">PDF</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="pub">
-      <div class="venue-chip">KIISE<span class="yr">2025</span></div>
-      <div class="pub-body">
-        <div class="pub-title">Toward Inclusive and Fair AI Experiences</div>
-        <div class="pub-authors">Hwajung Hong, <b>Sieun Kim</b>, Sungmin Na</div>
-        <div class="pub-venue">Communications of the Korean Institute of Information Scientists and Engineers</div>
-        <div class="pub-links">
-          <a class="plink" href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12034203" target="_blank" rel="noopener">DOI</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="pub">
-      <div class="venue-chip">Under<br>Review</div>
-      <div class="pub-body">
-        <div class="pub-title">AssurAI: Experience with Constructing Korean Socio-cultural Dataset to Discover Potential Risks of Generative AI</div>
-        <div class="pub-authors">Chae-Gyun Lim, Seung-Ho Han, EunYoung Byun, Jeongyun Han, Soohyun Cho, Eojin Joo, Heehyeon Kim, <b>Sieun Kim</b>, Juhoon Lee, Hyunsoo Lee, et al. (89 authors incl. Hwajung Hong, Juho Kim, Uichin Lee)</div>
-        <div class="pub-venue">Under review at IEEE Transactions on Computational Social Systems</div>
-        <div class="pub-links">
-          <a class="plink" href="https://arxiv.org/abs/2511.20686" target="_blank" rel="noopener">DOI</a>
-          <a class="plink" href="https://arxiv.org/pdf/2511.20686" target="_blank" rel="noopener">PDF</a>
-        </div>
-      </div>
+  <div class="entry">
+    <div class="etitle">AssurAI: Experience with Constructing Korean Socio-cultural Dataset to Discover Potential Risks of Generative AI</div>
+    <div class="eauthors">Chae-Gyun Lim, Seung-Ho Han, EunYoung Byun, Jeongyun Han, Soohyun Cho, Eojin Joo, Heehyeon Kim, <span class="me">Sieun Kim</span>, Juhoon Lee, Hyunsoo Lee, et al. (89 authors incl. Hwajung Hong, Juho Kim and Uichin Lee)</div>
+    <div class="emeta">
+      <span class="evenue">IEEE TCSS (under review)</span>
+      <a class="elink" href="https://arxiv.org/abs/2511.20686" target="_blank" rel="noopener">DOI</a>
+      <a class="elink" href="https://arxiv.org/pdf/2511.20686" target="_blank" rel="noopener">PDF</a>
     </div>
   </div>
 
-  <div class="pub-group">
-    <h3>Posters &amp; Workshop Papers</h3>
+  <div class="year">2026</div>
 
-    <div class="pub">
-      <div class="venue-chip">CHI LBW<span class="yr">2025</span></div>
-      <div class="pub-body">
-        <div class="pub-title">Beyond the Badge: Designing Digital Mental Health Interventions for Korean Investigative Officers</div>
-        <div class="pub-authors"><b>Sieun Kim</b>, Seonmi Lee, Insu Choe, Hwajung Hong, Dooyoung Jung</div>
-        <div class="pub-venue">ACM CHI 2025, Late-Breaking Work</div>
-        <div class="pub-links">
-          <a class="plink" href="https://dl.acm.org/doi/full/10.1145/3706599.3720251" target="_blank" rel="noopener">DOI</a>
-          <a class="plink" href="https://dl.acm.org/doi/pdf/10.1145/3706599.3720251" target="_blank" rel="noopener">PDF</a>
-        </div>
-      </div>
+  <div class="entry">
+    <div class="etitle">Dark and Bright Side of Participatory Red-Teaming with Targets of Stereotyping for Eliciting Harmful Behaviors from Large Language Models</div>
+    <div class="eauthors"><span class="me">Sieun Kim</span>, Yeeun Jo, Sungmin Na, Hyunseung Lim, Eunchae Lee, Yu Min Choi, Soohyun Cho and Hwajung Hong</div>
+    <div class="emeta">
+      <span class="evenue">CHI 2026</span>
+      <a class="elink" href="https://dl.acm.org/doi/10.1145/3772318.3790820" target="_blank" rel="noopener">DOI</a>
+      <a class="elink" href="https://arxiv.org/pdf/2602.19124" target="_blank" rel="noopener">PDF</a>
+      <span class="eaward">🏅 Best Paper Honorable Mention (Top 5%)</span>
     </div>
+  </div>
 
-    <div class="pub">
-      <div class="venue-chip">BigComp<span class="yr">2025</span></div>
-      <div class="pub-body">
-        <div class="pub-title">Ingroup and Outgroup Perceptions in Stereotypical Biases of Large Language Models: A Korean Context</div>
-        <div class="pub-authors"><b>Sieun Kim</b>, Sungmin Na, Hwajung Hong</div>
-        <div class="pub-venue">IEEE BigComp 2025 — 1st International Workshop for Multi-Modal AI Safety Benchmark (MMAISB)</div>
-        <div class="pub-links">
-          <a class="plink" href="https://bigcompu.mycafe24.com/conf2025/workshop-list.html" target="_blank" rel="noopener">Workshop</a>
-        </div>
-      </div>
+  <div class="entry">
+    <div class="etitle">Moodialogue: Transforming Emotions into Personified, Conversational Agents</div>
+    <div class="eauthors">Sangsu Jang, <span class="me">Sieun Kim</span>, Gahyeon Bae and Hwajung Hong</div>
+    <div class="emeta">
+      <span class="evenue">CHI 2026</span>
+      <a class="elink" href="https://dl.acm.org/doi/10.1145/3772318.3790807" target="_blank" rel="noopener">DOI</a>
+      <a class="elink" href="https://dl.acm.org/doi/pdf/10.1145/3772318.3790807" target="_blank" rel="noopener">PDF</a>
     </div>
+  </div>
 
-    <div class="pub">
-      <div class="venue-chip">ISRII<span class="yr">2024</span></div>
-      <div class="pub-body">
-        <div class="pub-title">Developing Data-Driven Persona for Personalized Scenario of Behavioral Activation Therapy (BAT) Chatbot</div>
-        <div class="pub-authors"><b>Sieun Kim</b>, Inji Jung, Sangil Lee, Dooyoung Jung</div>
-        <div class="pub-venue">International Society for Research on Internet Interventions (ISRII 2024)</div>
-      </div>
+  <div class="year">2025</div>
+
+  <div class="entry">
+    <div class="etitle">Therapeutic Potential of Social Chatbots in Alleviating Loneliness and Social Anxiety: Quasi-Experimental Mixed Methods Study</div>
+    <div class="eauthors">Myungsung Kim, Seonmi Lee, <span class="me">Sieun Kim</span>, Jeong-in Heo, Sangil Lee, Yu-Bin Shin, Chul-Hyun Cho and Dooyoung Jung</div>
+    <div class="emeta">
+      <span class="evenue">JMIR 2025</span>
+      <a class="elink" href="https://www.jmir.org/2025/1/e65589/" target="_blank" rel="noopener">DOI</a>
+      <a class="elink" href="https://www.jmir.org/2025/1/e65589/PDF" target="_blank" rel="noopener">PDF</a>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="etitle">Toward Inclusive and Fair AI Experiences</div>
+    <div class="eauthors">Hwajung Hong, <span class="me">Sieun Kim</span> and Sungmin Na</div>
+    <div class="emeta">
+      <span class="evenue">Communications of KIISE 2025</span>
+      <a class="elink" href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12034203" target="_blank" rel="noopener">DOI</a>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="etitle">Beyond the Badge: Designing Digital Mental Health Interventions for Korean Investigative Officers</div>
+    <div class="eauthors"><span class="me">Sieun Kim</span>, Seonmi Lee, Insu Choe, Hwajung Hong and Dooyoung Jung</div>
+    <div class="emeta">
+      <span class="evenue">CHI 2025 (LBW)</span>
+      <a class="elink" href="https://dl.acm.org/doi/full/10.1145/3706599.3720251" target="_blank" rel="noopener">DOI</a>
+      <a class="elink" href="https://dl.acm.org/doi/pdf/10.1145/3706599.3720251" target="_blank" rel="noopener">PDF</a>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="etitle">Ingroup and Outgroup Perceptions in Stereotypical Biases of Large Language Models: A Korean Context</div>
+    <div class="eauthors"><span class="me">Sieun Kim</span>, Sungmin Na and Hwajung Hong</div>
+    <div class="emeta">
+      <span class="evenue">BigComp 2025 (MMAISB Workshop)</span>
+      <a class="elink" href="https://bigcompu.mycafe24.com/conf2025/workshop-list.html" target="_blank" rel="noopener">Workshop</a>
+    </div>
+  </div>
+
+  <div class="year">2024</div>
+
+  <div class="entry">
+    <div class="etitle">Developing Data-Driven Persona for Personalized Scenario of Behavioral Activation Therapy (BAT) Chatbot</div>
+    <div class="eauthors"><span class="me">Sieun Kim</span>, Inji Jung, Sangil Lee and Dooyoung Jung</div>
+    <div class="emeta">
+      <span class="evenue">ISRII 2024 (Poster)</span>
     </div>
   </div>
 </main>

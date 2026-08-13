@@ -43,7 +43,7 @@
   .hero-photo{flex:0 0 220px;width:220px;}
   .hero-photo img{width:100%;height:auto;display:block;border-radius:4px;}
   .hero h1{font-family:'Source Serif 4',serif;font-size:40px;font-weight:700;line-height:1.15;}
-  .hero .role{font-size:16px;color:var(--muted);margin-top:6px;margin-bottom:18px;}
+  .hero .role{font-size:16px;color:var(--muted);margin-top:6px;margin-bottom:34px;}
   .hero .role b{color:var(--text);font-weight:600;}
   .hero p.bio{margin-bottom:14px;}
   .hero p.bio strong{font-weight:600;}
@@ -88,7 +88,7 @@
   .rq-dots{display:flex;gap:6px;}
   .rq-dot{width:7px;height:7px;border-radius:50%;background:var(--border);transition:background .25s;}
   .rq-dot.on{background:var(--qc,#2b4c7e);}
-  .rq-hint{margin-left:auto;font-size:12px;color:var(--faint);}
+  .rq-hint{margin-left:auto;font-size:13px;opacity:.55;}
 
   footer{border-top:1px solid var(--border);margin-top:auto;padding:28px 24px;text-align:center;font-size:13px;color:var(--faint);}
 
@@ -146,13 +146,12 @@
     <div class="rq-kicker">things I keep wondering about…</div>
     <div class="rq-stage">
       <div class="rq-card" id="rqCard" style="--qc:#1a1a1a;">
-        <span class="rq-num" id="rqNum">01</span>
         <div class="rq-text" id="rqText">How does interacting with AI affect people psychologically and socially?</div>
         <div class="rq-foot">
           <div class="rq-dots" id="rqDots">
             <span class="rq-dot on"></span><span class="rq-dot"></span><span class="rq-dot"></span>
           </div>
-          <span class="rq-hint">click for the next one →</span>
+          <span class="rq-hint">🖱️</span>
         </div>
       </div>
     </div>
@@ -164,16 +163,15 @@
 
 <script>
   const questions=[
-    {num:"01",color:"#1a1a1a",
+    {color:"#1a1a1a",
      text:"How does interacting with AI affect people psychologically and socially?"},
-    {num:"02",color:"#1a1a1a",
+    {color:"#1a1a1a",
      text:"As AI moves beyond a tool to a companion, how can humans maintain healthy relationships with it?"},
-    {num:"03",color:"#1a1a1a",
+    {color:"#1a1a1a",
      text:"What should be considered in designing AI that supports psychological and social well-being?"}
   ];
   let qi=0;
   const card=document.getElementById('rqCard');
-  const numEl=document.getElementById('rqNum');
   const textEl=document.getElementById('rqText');
   const dots=document.querySelectorAll('#rqDots .rq-dot');
   let animating=false;
@@ -186,7 +184,6 @@
       qi=(qi+1)%questions.length;
       const q=questions[qi];
       card.style.setProperty('--qc',q.color);
-      numEl.textContent=q.num;
       textEl.textContent=q.text;
       dots.forEach((d,i)=>d.classList.toggle('on',i===qi));
       card.classList.remove('slide-out');
