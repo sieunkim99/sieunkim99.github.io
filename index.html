@@ -43,7 +43,8 @@
   .hero-photo{flex:0 0 220px;width:220px;}
   .hero-photo img{width:100%;height:auto;display:block;border-radius:4px;}
   .hero h1{font-family:'Source Serif 4',serif;font-size:40px;font-weight:700;line-height:1.15;}
-  .hero .role{font-size:16px;color:var(--muted);margin-top:6px;margin-bottom:34px;}
+  .hero .role{font-size:16px;color:var(--muted);margin-top:6px;}
+  .hero .role-sub{font-size:15px;color:var(--muted);margin-top:14px;margin-bottom:30px;}
   .hero .role b{color:var(--text);font-weight:600;}
   .hero p.bio{margin-bottom:14px;}
   .hero p.bio strong{font-weight:600;}
@@ -52,7 +53,7 @@
     display:inline-flex;align-items:center;gap:6px;
     font-size:13px;font-weight:500;padding:7px 14px;border-radius:6px;
     border:1px solid var(--border);color:var(--text);background:#fff;
-    transition:all .15s ease;
+    transition:all .15s ease;cursor:pointer;font-family:'Inter',sans-serif;
   }
   .btn:hover{border-color:var(--accent);color:var(--accent);text-decoration:none;background:var(--accent-bg);}
   .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;}
@@ -119,7 +120,8 @@
     <div class="hero-photo"><img src="photo.jpg" alt="Sieun Kim"></div>
     <div>
       <h1>Sieun Kim</h1>
-      <p class="role">HCI Researcher · M.S. in Industrial Design, <b>KAIST</b> (<a href="https://dxd-lab.github.io/" target="_blank" rel="noopener">DxD Lab</a>, advised by <a href="https://hwajunghong.com" target="_blank" rel="noopener">Prof. Hwajung Hong</a>)</p>
+      <p class="role">HCI Researcher</p>
+      <p class="role-sub">M.S. in Industrial Design, <b>KAIST</b> (<a href="https://dxd-lab.github.io/" target="_blank" rel="noopener">DxD Lab</a>, advised by <a href="https://hwajunghong.com/" target="_blank" rel="noopener">Prof. Hwajung Hong</a>)</p>
       <p class="bio">
         My research focuses on designing <strong>responsible Human-AI interaction</strong> that aligns
         <strong>socioaffective human values</strong>. I am specifically interested in the
@@ -134,8 +136,9 @@
         <span class="tag">AI Companion</span>
       </div>
       <div class="contact-row">
-        <a class="btn primary" href="mailto:sieunkim@kaist.ac.kr">✉ Email</a>
+        <button class="btn primary" id="emailBtn" type="button">✉ Email</button>
         <a class="btn" href="https://scholar.google.com/citations?user=v0rPHy4AAAAJ&hl=ko&oi=ao" target="_blank" rel="noopener">Google Scholar</a>
+        <a class="btn" href="https://www.linkedin.com/in/sieun-kim-076818263/" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn" href="https://brunch.co.kr/@sieunkim" target="_blank" rel="noopener">Essays</a>
       </div>
     </div>
@@ -192,6 +195,15 @@
       card.classList.remove('slide-in');
       setTimeout(()=>{animating=false;},320);
     },300);
+  });
+
+  // email copy
+  const eb=document.getElementById('emailBtn');
+  eb.addEventListener('click',()=>{
+    navigator.clipboard.writeText('sieunkim@kaist.ac.kr').then(()=>{
+      eb.textContent='✓ Copied!';
+      setTimeout(()=>{eb.textContent='✉ Email';},1600);
+    });
   });
 </script>
 </body>
