@@ -44,30 +44,34 @@
     font-family:'Source Serif 4',serif;font-size:clamp(46px,7.5vw,62px);
     font-weight:700;letter-spacing:-.01em;line-height:1;
   }
-  .infobar{
-    display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;
-    border-bottom:1px solid var(--rule);padding:9px 0;
+  .folio{
+    display:flex;align-items:baseline;justify-content:space-between;gap:16px;
+    border-bottom:1px solid var(--rule);padding:10px 0 9px;
   }
-  .kicker{font-size:11.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;white-space:nowrap;}
-  .aff{font-size:12.5px;color:var(--muted);}
-  .aff a{color:var(--muted);text-decoration:underline;text-underline-offset:2px;text-decoration-color:var(--border);}
-  .aff a:hover{color:var(--text);text-decoration-color:var(--text);}
-  .aff b{color:var(--text);font-weight:600;}
-  .contact-links{margin-left:auto;font-size:11px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;}
+  .kicker{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;white-space:nowrap;}
+  .contact-links{font-size:11px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;}
   .contact-links a,.contact-links button{
     color:var(--muted);background:none;border:none;cursor:pointer;
-    font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:0;
+    font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:0;
   }
   .contact-links a:hover,.contact-links button:hover{color:var(--text);text-decoration:underline;text-underline-offset:3px;}
-  .contact-links .sep{color:var(--faint);margin:0 6px;}
+  .contact-links .sep{color:var(--faint);margin:0 7px;}
+  .affbar{
+    border-bottom:1px solid var(--rule);padding:8px 0;
+    font-size:13px;color:var(--muted);
+  }
+  .affbar a{color:var(--muted);text-decoration:underline;text-underline-offset:2px;text-decoration-color:var(--border);}
+  .affbar a:hover{color:var(--text);text-decoration-color:var(--text);}
+  .affbar b{color:var(--text);font-weight:600;}
 
-  /* feature: photo + bio */
-  .feature{display:flex;gap:30px;margin-top:28px;}
+  /* feature: photo + bio — columns end flush */
+  .feature{display:flex;gap:30px;margin-top:30px;}
   .feature-photo{flex:0 0 220px;}
   .feature-photo img{width:100%;height:auto;display:block;}
-  .bio-col{flex:1;}
+  .bio-col{flex:1;display:flex;flex-direction:column;min-height:330px;}
   .bio{
     font-family:'Source Serif 4',serif;font-size:15.5px;line-height:1.85;color:var(--text);
+    text-align:justify;hyphens:auto;
   }
   .bio::first-letter{
     font-family:'Source Serif 4',serif;font-size:56px;font-weight:500;
@@ -76,7 +80,8 @@
   .bio strong{font-weight:600;}
   .topics{
     font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;
-    color:var(--muted);margin-top:20px;line-height:2;
+    color:var(--muted);margin-top:auto;padding-top:20px;line-height:2;
+    border-top:1px solid var(--border);
   }
 
   /* wondering block */
@@ -125,13 +130,13 @@
   <header class="masthead">
     <h1>Sieun Kim</h1>
   </header>
-  <div class="infobar">
+  <div class="folio">
     <span class="kicker">HCI Researcher</span>
-    <span class="aff">M.S. in Industrial Design, <b>KAIST</b> (<a href="https://dxd-lab.github.io/" target="_blank" rel="noopener">DxD Lab</a>, advised by <a href="https://hwajunghong.com/" target="_blank" rel="noopener">Prof. Hwajung Hong</a>)</span>
     <span class="contact-links">
       <button id="emailBtn" type="button">Email</button><span class="sep">·</span><a href="https://scholar.google.com/citations?user=v0rPHy4AAAAJ&hl=ko&oi=ao" target="_blank" rel="noopener">Google Scholar</a><span class="sep">·</span><a href="https://www.linkedin.com/in/sieun-kim-076818263/" target="_blank" rel="noopener">LinkedIn</a><span class="sep">·</span><a href="https://brunch.co.kr/@sieunkim" target="_blank" rel="noopener">Essays</a>
     </span>
   </div>
+  <div class="affbar">M.S. in Industrial Design, <b>KAIST</b> (<a href="https://dxd-lab.github.io/" target="_blank" rel="noopener">DxD Lab</a>, advised by <a href="https://hwajunghong.com/" target="_blank" rel="noopener">Prof. Hwajung Hong</a>)</div>
 
   <!-- ================= FEATURE ================= -->
   <div class="feature">
