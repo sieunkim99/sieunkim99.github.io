@@ -37,8 +37,9 @@
   /* folder menu */
   .folders{
     display:flex;gap:30px;justify-content:center;flex-wrap:wrap;
-    padding:8px 0 34px;border-bottom:1px solid var(--border);margin-bottom:8px;
+    padding:8px 0 34px;border-bottom:none;margin-bottom:8px;
   }
+  .folders.active{border-bottom:1px solid var(--border);}
   .folder{width:126px;text-align:center;cursor:pointer;user-select:none;}
   .folder svg{display:block;margin:0 auto;transition:transform .18s ease;}
   .folder:hover svg{transform:translateY(-4px);}
@@ -289,6 +290,7 @@
     f.addEventListener('click',()=>{
       document.querySelectorAll('.folder').forEach(x=>x.classList.remove('on'));
       f.classList.add('on');
+      document.querySelector('.folders').classList.add('active');
       const filter=f.dataset.f;
       document.querySelectorAll('.proj').forEach(p=>{
         p.classList.toggle('hidden', filter!=='all' && p.dataset.cat!==filter);
