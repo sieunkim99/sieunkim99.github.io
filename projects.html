@@ -45,20 +45,28 @@
   }
   .proj-desc{font-size:14px;margin-top:8px;color:#3a3a3a;line-height:1.7;}
 
-  /* my role toggle */
-  details.role{margin-top:12px;}
+  /* my role toggle — quiet text link + indented panel */
+  details.role{margin-top:10px;}
   details.role summary{
-    list-style:none;display:inline-flex;align-items:center;gap:6px;cursor:pointer;
-    font-size:12.5px;font-weight:600;color:var(--accent);
-    border:1px solid var(--border);border-radius:6px;padding:5px 14px;
-    transition:all .15s ease;user-select:none;
+    list-style:none;display:inline-flex;align-items:center;gap:5px;cursor:pointer;
+    font-size:13px;font-weight:500;color:var(--muted);
+    text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--border);
+    transition:color .15s ease;user-select:none;
   }
   details.role summary::-webkit-details-marker{display:none;}
-  details.role summary::after{content:"▾";font-size:11px;transition:transform .2s ease;}
-  details.role[open] summary::after{transform:rotate(180deg);}
-  details.role summary:hover{border-color:var(--accent);background:var(--accent-bg);}
-  details.role ul{margin:12px 0 0 20px;font-size:14px;color:#3a3a3a;line-height:1.7;}
-  details.role ul li{margin-bottom:4px;}
+  details.role summary::after{content:"▸";font-size:10px;text-decoration:none;transition:transform .2s ease;}
+  details.role[open] summary::after{transform:rotate(90deg);}
+  details.role summary:hover{color:var(--text);text-decoration-color:var(--text);}
+  details.role ul{
+    list-style:none;margin:12px 0 4px;padding:2px 0 2px 18px;
+    border-left:2px solid var(--border);
+  }
+  details.role ul li{
+    font-size:13.5px;color:var(--muted);line-height:1.65;margin-bottom:7px;
+    position:relative;padding-left:16px;
+  }
+  details.role ul li::before{content:"–";position:absolute;left:0;color:var(--faint);}
+  details.role ul li:last-child{margin-bottom:0;}
 
   /* related publications */
   .rel-pubs{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px;align-items:center;}
@@ -81,13 +89,12 @@
     <a class="nl" href="publications.html">Publications</a>
     <a class="nl active" href="projects.html">Projects</a>
     <a class="nl" href="education.html">Education</a>
-    <a class="nl" href="CV_SieunKim.pdf" target="_blank" rel="noopener">CV</a>
+    <a class="nl" href="https://docs.google.com/document/d/1PwGmC8K4dfIP5ygLwewsmuh0QVBEDHvkvM1Wt_JcWec/edit?tab=t.0" target="_blank" rel="noopener">CV</a>
   </div>
 </nav>
 
 <main>
   <h1>Projects</h1>
-  <p class="page-dek">Research projects on how AI shapes the human mind — spanning AI safety, AI companions, and digital mental health.</p>
 
   <div class="proj">
     <div class="proj-head"><h3>Establishing Safeguards for Adolescents Based on AI Usage Characteristics (NIA) <span class="ongoing-badge">Ongoing</span></h3><span class="proj-period">2026 – Present</span></div>
