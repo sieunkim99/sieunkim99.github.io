@@ -6,7 +6,7 @@
 <title>Sieun Kim — HCI Researcher</title>
 <meta name="description" content="Sieun Kim is an HCI researcher at KAIST studying responsible Human-AI interaction, AI safety, and digital mental health.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#ffffff;
@@ -17,6 +17,7 @@
     --accent-dark:#000000;
     --accent-bg:#f2f2f0;
     --border:#e8e6e3;
+    --rule:#cfcdc9;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -34,59 +35,75 @@
   .nav-name:hover{text-decoration:none;color:var(--accent);}
   nav .nl{font-size:13.5px;font-weight:500;color:var(--muted);}
   nav .nl:hover{color:var(--accent);text-decoration:none;}
-  nav .nl.active{color:var(--text);}
 
   main{max-width:860px;margin:0 auto;padding:0 24px;flex:1;width:100%;}
 
-  /* hero */
-  .hero{display:flex;gap:44px;align-items:flex-end;padding-top:56px;}
-  .hero-photo{flex:0 0 220px;width:220px;}
-  .hero-photo img{width:100%;height:auto;display:block;border-radius:4px;}
-  .hero h1{font-family:'Source Serif 4',serif;font-size:40px;font-weight:700;line-height:1.15;}
-  .hero .role{font-size:17px;font-weight:500;color:var(--text);margin-top:10px;}
-  .hero .role-sub{font-size:14px;color:var(--muted);margin-top:2px;margin-bottom:22px;}
-  .hero .role-sub b{color:var(--text);font-weight:600;}
-  .contact-row{display:flex;flex-wrap:wrap;gap:10px;}
-
-  /* bio below hero */
-  .bio-block{margin-top:56px;margin-bottom:60px;}
-  .bio-block p.bio{margin-bottom:16px;}
-  .bio-block p.bio strong{font-weight:600;}
-  .btn{
-    display:inline-flex;align-items:center;gap:6px;
-    font-size:13px;font-weight:500;padding:7px 14px;border-radius:6px;
-    border:1px solid var(--border);color:var(--text);background:#fff;
-    transition:all .15s ease;cursor:pointer;font-family:'Inter',sans-serif;
+  /* masthead */
+  .masthead{border-bottom:3px solid var(--text);padding:52px 0 12px;}
+  .masthead h1{
+    font-family:'Source Serif 4',serif;font-size:clamp(46px,7.5vw,62px);
+    font-weight:700;letter-spacing:-.01em;line-height:1;
   }
-  .btn:hover{border-color:var(--accent);color:var(--accent);text-decoration:none;background:var(--accent-bg);}
-  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;}
-  .btn.primary:hover{background:var(--accent-dark);color:#fff;}
-  .interests{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
-  .tag{font-size:12.5px;font-weight:500;color:#4a4a4a;background:#f4f3f0;border-radius:999px;padding:4px 13px;}
+  .infobar{
+    display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;
+    border-bottom:1px solid var(--rule);padding:9px 0;
+  }
+  .kicker{font-size:11.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;white-space:nowrap;}
+  .aff{font-size:12.5px;color:var(--muted);}
+  .aff a{color:var(--muted);text-decoration:underline;text-underline-offset:2px;text-decoration-color:var(--border);}
+  .aff a:hover{color:var(--text);text-decoration-color:var(--text);}
+  .aff b{color:var(--text);font-weight:600;}
+  .contact-links{margin-left:auto;font-size:11px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;}
+  .contact-links a,.contact-links button{
+    color:var(--muted);background:none;border:none;cursor:pointer;
+    font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:0;
+  }
+  .contact-links a:hover,.contact-links button:hover{color:var(--text);text-decoration:underline;text-underline-offset:3px;}
+  .contact-links .sep{color:var(--faint);margin:0 6px;}
 
-  /* research questions — one at a time, click to advance */
-  .rq-section{padding:64px 0 16px;}
+  /* feature: photo + bio */
+  .feature{display:flex;gap:30px;margin-top:28px;}
+  .feature-photo{flex:0 0 220px;}
+  .feature-photo img{width:100%;height:auto;display:block;}
+  .bio-col{flex:1;}
+  .bio{
+    font-family:'Source Serif 4',serif;font-size:15.5px;line-height:1.85;color:var(--text);
+  }
+  .bio::first-letter{
+    font-family:'Source Serif 4',serif;font-size:56px;font-weight:500;
+    float:left;line-height:.82;padding:6px 9px 0 0;
+  }
+  .bio strong{font-weight:600;}
+  .topics{
+    font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--muted);margin-top:20px;line-height:2;
+  }
+
+  /* wondering block */
+  .rq-block{
+    border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+    margin:36px 0 48px;padding:26px 16px 22px;text-align:center;
+    cursor:pointer;user-select:none;
+  }
   .rq-kicker{
-    font-family:'Source Serif 4',serif;font-style:italic;font-size:18px;
-    color:var(--muted);text-align:center;margin-bottom:22px;
+    font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;
+    color:var(--muted);margin-bottom:12px;
   }
-  .rq-stage{max-width:640px;margin:0 auto;}
-  .rq-card{cursor:pointer;user-select:none;text-align:center;padding:8px 0;}
   .rq-text{
-    font-family:'Source Serif 4',serif;font-size:23px;font-weight:600;line-height:1.5;
-    transition:opacity .25s ease;
+    font-family:'Source Serif 4',serif;font-style:italic;font-size:21px;
+    line-height:1.55;max-width:620px;margin:0 auto;transition:opacity .25s ease;
   }
-  .rq-dots{display:flex;justify-content:center;gap:6px;margin-top:22px;}
+  .rq-dots{display:flex;justify-content:center;gap:6px;margin-top:16px;}
   .rq-dot{width:6px;height:6px;border-radius:50%;background:var(--border);transition:background .25s;}
   .rq-dot.on{background:var(--text);}
 
   footer{border-top:1px solid var(--border);margin-top:auto;padding:28px 24px;text-align:center;font-size:13px;color:var(--faint);}
 
   @media (max-width:680px){
-    .hero{flex-direction:column;gap:28px;}
-    .hero-photo{width:200px;}
-    .rq-card{padding:30px 26px 24px;}
-    .rq-text{font-size:19px;}
+    .feature{flex-direction:column;}
+    .feature-photo{width:220px;}
+    .contact-links{margin-left:0;}
+    .rq-text{font-size:18px;}
   }
 </style>
 </head>
@@ -104,51 +121,35 @@
 
 <main>
 
-  <!-- ================= HERO ================= -->
-  <div class="hero">
-    <div class="hero-photo"><img src="photo.jpg" alt="Sieun Kim"></div>
-    <div>
-      <h1>Sieun Kim</h1>
-      <p class="role">HCI Researcher</p>
-      <p class="role-sub">M.S. in Industrial Design, <b>KAIST</b> (<a href="https://dxd-lab.github.io/" target="_blank" rel="noopener">DxD Lab</a>, advised by <a href="https://hwajunghong.com/" target="_blank" rel="noopener">Prof. Hwajung Hong</a>)</p>
-      <div class="contact-row">
-        <button class="btn primary" id="emailBtn" type="button">✉ Email</button>
-        <a class="btn" href="https://scholar.google.com/citations?user=v0rPHy4AAAAJ&hl=ko&oi=ao" target="_blank" rel="noopener">Google Scholar</a>
-        <a class="btn" href="https://www.linkedin.com/in/sieun-kim-076818263/" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="btn" href="https://brunch.co.kr/@sieunkim" target="_blank" rel="noopener">Essays</a>
-      </div>
+  <!-- ================= MASTHEAD ================= -->
+  <header class="masthead">
+    <h1>Sieun Kim</h1>
+  </header>
+  <div class="infobar">
+    <span class="kicker">HCI Researcher</span>
+    <span class="aff">M.S. in Industrial Design, <b>KAIST</b> (<a href="https://dxd-lab.github.io/" target="_blank" rel="noopener">DxD Lab</a>, advised by <a href="https://hwajunghong.com/" target="_blank" rel="noopener">Prof. Hwajung Hong</a>)</span>
+    <span class="contact-links">
+      <button id="emailBtn" type="button">Email</button><span class="sep">·</span><a href="https://scholar.google.com/citations?user=v0rPHy4AAAAJ&hl=ko&oi=ao" target="_blank" rel="noopener">Google Scholar</a><span class="sep">·</span><a href="https://www.linkedin.com/in/sieun-kim-076818263/" target="_blank" rel="noopener">LinkedIn</a><span class="sep">·</span><a href="https://brunch.co.kr/@sieunkim" target="_blank" rel="noopener">Essays</a>
+    </span>
+  </div>
+
+  <!-- ================= FEATURE ================= -->
+  <div class="feature">
+    <div class="feature-photo"><img src="photo.jpg" alt="Sieun Kim"></div>
+    <div class="bio-col">
+      <p class="bio">My research focuses on designing <strong>responsible Human-AI interaction</strong> that aligns <strong>socioaffective human values</strong>. I am specifically interested in the <strong>societal and psychological impact of AI</strong>. Grounded in my interdisciplinary background in psychotherapy, software engineering, digital mental health, and industrial design, I investigate how to align AI systems with diverse human values and emotional needs — before irreversible risks occur.</p>
+      <p class="topics">Responsible Human-AI Interaction · AI Safety · AI Ethics · AI Companion</p>
     </div>
   </div>
 
-  <!-- ================= RESEARCH QUESTIONS ================= -->
-  <section class="rq-section">
-    <div class="rq-kicker">things I keep wondering about…</div>
-    <div class="rq-stage">
-      <div class="rq-card" id="rqCard">
-        <div class="rq-text" id="rqText">How does interacting with AI affect people psychologically and socially?</div>
-        <div class="rq-dots" id="rqDots">
-          <span class="rq-dot on"></span><span class="rq-dot"></span><span class="rq-dot"></span>
-        </div>
-      </div>
+  <!-- ================= WONDERING ================= -->
+  <section class="rq-block" id="rqCard">
+    <div class="rq-kicker">Things I keep wondering about</div>
+    <div class="rq-text" id="rqText">“How does interacting with AI affect people psychologically and socially?”</div>
+    <div class="rq-dots" id="rqDots">
+      <span class="rq-dot on"></span><span class="rq-dot"></span><span class="rq-dot"></span>
     </div>
   </section>
-
-  <!-- ================= BIO ================= -->
-  <div class="bio-block">
-    <p class="bio">
-      My research focuses on designing <strong>responsible Human-AI interaction</strong> that aligns
-      <strong>socioaffective human values</strong>. I am specifically interested in the
-      <strong>societal and psychological impact of AI</strong>. Grounded in my interdisciplinary background in
-      psychotherapy, software engineering, digital mental health, and industrial design, I investigate how to
-      align AI systems with diverse human values and emotional needs — before irreversible risks occur.
-    </p>
-    <div class="interests">
-      <span class="tag">Responsible Human-AI Interaction</span>
-      <span class="tag">AI Safety</span>
-      <span class="tag">AI Ethics</span>
-      <span class="tag">AI Companion</span>
-    </div>
-  </div>
 
 </main>
 
@@ -156,16 +157,14 @@
 
 <script>
   const questions=[
-    "How does interacting with AI affect people psychologically and socially?",
-    "As AI moves beyond a tool to a companion, how can humans maintain healthy relationships with it?",
-    "What should be considered in designing AI that supports psychological and social well-being?"
+    "“How does interacting with AI affect people psychologically and socially?”",
+    "“As AI moves beyond a tool to a companion, how can humans maintain healthy relationships with it?”",
+    "“What should be considered in designing AI that supports psychological and social well-being?”"
   ];
-  let qi=0;
+  let qi=0,animating=false;
   const card=document.getElementById('rqCard');
   const textEl=document.getElementById('rqText');
   const dots=document.querySelectorAll('#rqDots .rq-dot');
-  let animating=false;
-
   card.addEventListener('click',()=>{
     if(animating)return;
     animating=true;
@@ -179,12 +178,11 @@
     },250);
   });
 
-  // email copy
   const eb=document.getElementById('emailBtn');
   eb.addEventListener('click',()=>{
     navigator.clipboard.writeText('sieunkim@kaist.ac.kr').then(()=>{
-      eb.textContent='✓ Copied!';
-      setTimeout(()=>{eb.textContent='✉ Email';},1600);
+      eb.textContent='Copied!';
+      setTimeout(()=>{eb.textContent='Email';},1600);
     });
   });
 </script>
