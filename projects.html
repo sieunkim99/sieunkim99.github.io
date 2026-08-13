@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — Sieun Kim</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --text:#1a1a1a;
+    --muted:#6b6b6b;
+    --faint:#9a9a9a;
+    --accent:#2b4c7e;
+    --accent-dark:#1e3a63;
+    --accent-bg:#f1f4f8;
+    --border:#e8e6e3;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;scroll-padding-top:70px;}
+  body{font-family:'Inter',-apple-system,sans-serif;font-size:15.5px;line-height:1.7;color:var(--text);background:var(--bg);}
+  a{color:var(--accent);text-decoration:none;}
+  a:hover{color:var(--accent-dark);text-decoration:underline;}
+
+  nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);}
+  .nav-inner{max-width:860px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:26px;}
+  .nav-name{font-family:'Source Serif 4',serif;font-weight:700;font-size:17px;margin-right:auto;color:var(--text);}
+  .nav-name:hover{text-decoration:none;color:var(--accent);}
+  nav .nl{font-size:13.5px;font-weight:500;color:var(--muted);}
+  nav .nl:hover{color:var(--accent);text-decoration:none;}
+  nav .nl.active{color:var(--text);}
+
+  main{max-width:860px;margin:0 auto;padding:0 24px 90px;}
+  h1{font-family:'Source Serif 4',serif;font-size:34px;font-weight:700;padding-top:56px;margin-bottom:8px;}
+  .page-dek{font-size:15px;color:var(--muted);margin-bottom:36px;}
+
+  .proj{padding:22px 0;border-bottom:1px solid var(--border);}
+  .proj-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;}
+  .proj-head h3{font-family:'Source Serif 4',serif;font-size:18px;font-weight:600;flex:1;line-height:1.4;}
+  .proj-period{font-size:12.5px;color:var(--faint);font-weight:500;white-space:nowrap;}
+  .ongoing-badge{
+    font-size:11px;font-weight:600;color:#2e6b46;background:#ebf5ef;
+    border-radius:4px;padding:2px 8px;vertical-align:2px;
+  }
+  .proj-desc{font-size:14px;margin-top:8px;color:#3a3a3a;line-height:1.7;}
+  .proj ul{margin:8px 0 0 20px;font-size:14px;color:#3a3a3a;line-height:1.7;}
+  .proj ul li{margin-bottom:4px;}
+  .proj-out{font-size:13px;margin-top:10px;color:var(--accent);font-weight:500;}
+
+  footer{border-top:1px solid var(--border);margin-top:40px;padding:28px 24px;text-align:center;font-size:13px;color:var(--faint);}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-name" href="index.html">Sieun Kim</a>
+    <a class="nl" href="index.html">Home</a>
+    <a class="nl active" href="projects.html">Projects</a>
+    <a class="nl" href="index.html#publications">Publications</a>
+  </div>
+</nav>
+
+<main>
+  <h1>Projects</h1>
+  <p class="page-dek">Research projects on how AI shapes the human mind — spanning AI safety, AI companions, and digital mental health.</p>
+
+  <div class="proj">
+    <div class="proj-head"><h3>Establishing Safeguards for Adolescents Based on AI Usage Characteristics (NIA) <span class="ongoing-badge">Ongoing</span></h3><span class="proj-period">2026 – Present</span></div>
+    <p class="proj-desc">National project (National Information Society Agency) developing youth-centered response strategies for adolescent AI use, spanning AI character platforms, AI literacy education, and AI companion relationships.</p>
+    <ul>
+      <li>Designing a qualitative study of adolescent creators on AI character platforms (e.g., Zeta) to propose youth-centered safety design directions</li>
+      <li>Proposing an AI literacy training program for school counselors that reframes red-teaming protocols into safe, simulation-based workshop modules</li>
+      <li>Analyzing 4-week conversation logs and follow-up interviews of new users of the AI companion "Luda" to understand parasocial relationship formation</li>
+    </ul>
+  </div>
+
+  <div class="proj">
+    <div class="proj-head"><h3>NAVER — AI Human Value Alignment <span class="ongoing-badge">Ongoing</span></h3><span class="proj-period">2026 – Present</span></div>
+    <p class="proj-desc">Exploring evaluation metrics for AI technologies aligned with human values.</p>
+    <ul>
+      <li>Proposed how behavioral indicators of a shopping agent should be designed and evaluated to maximize not only the utilitarian but also the hedonic value of shopping experiences</li>
+      <li>Built the project's academic framework and led external communication</li>
+    </ul>
+  </div>
+
+  <div class="proj">
+    <div class="proj-head"><h3>Safety Benchmark Dataset for Generative AI (TTA)</h3><span class="proj-period">2025</span></div>
+    <p class="proj-desc">Constructed a large-scale Korean multimodal benchmark dataset for evaluating generative AI safety.</p>
+    <ul>
+      <li>Constructed benchmark data for the stereotypical bias risk category through red-teaming</li>
+      <li>Designed and conducted large-scale survey research (n=390), analyzing perceived harm experienced by stereotype targets vs. out-groups</li>
+      <li>Led an experimental study on psychological harm experienced by targets during participatory red-teaming</li>
+    </ul>
+    <p class="proj-out">→ CHI 2026 (Best Paper Honorable Mention) · BigComp 2025 workshop · KIISE article · AssurAI dataset</p>
+  </div>
+
+  <div class="proj">
+    <div class="proj-head"><h3>Police Officer-Tailored Health Management Platform</h3><span class="proj-period">2023 – 2024</span></div>
+    <p class="proj-desc">Development of the mental health module for the official Korean National Police Agency health management app, focusing on profession-specific stressors and needs.</p>
+    <ul>
+      <li>Led team design for the mental health module; bridged design and development teams</li>
+      <li>Interviewed 19 police investigators at Yongsan Police Station; qualitative analysis for tailored DMHI design recommendations</li>
+      <li>Guided psychological counseling chatbot development based on interview insights</li>
+    </ul>
+    <p class="proj-out">→ CHI 2025 LBW</p>
+  </div>
+
+  <div class="proj">
+    <div class="proj-head"><h3>Psychological Effects and Acceptance of Social Chatbot 'Luda'</h3><span class="proj-period">2023 – 2024</span></div>
+    <p class="proj-desc">Exploring the therapeutic potential of the social chatbot 'Luda Lee'.</p>
+    <ul>
+      <li>Designed a 4-week experimental study exploring psychological experiences of social chatbot users</li>
+      <li>Recruited and managed 190 participants throughout the study period</li>
+      <li>Conducted and analyzed interviews with 30 participants</li>
+    </ul>
+    <p class="proj-out">→ JMIR 2025 · Master's thesis</p>
+  </div>
+
+  <div class="proj">
+    <div class="proj-head"><h3>Digital Phenotype-Based Real-Time Mental Health Monitoring Platform</h3><span class="proj-period">2023 – 2024</span></div>
+    <p class="proj-desc">Development of an AI early detection system using digital phenotyping data from smartphones and wearables.</p>
+    <ul>
+      <li>Designed the data-collection experiment and psychological survey protocols; managed data from 23 participants</li>
+      <li>Designed personalized chatbot personas using ChatGPT based on user digital phenotype clusters</li>
+      <li>Proposed a chatbot design that automates the behavioral-tracking component of Behavioral Activation Therapy, reducing user burden</li>
+    </ul>
+    <p class="proj-out">→ ISRII 2024 poster</p>
+  </div>
+
+  <div class="proj">
+    <div class="proj-head"><h3>VR Exposure Therapy for Anxiety</h3><span class="proj-period">2023</span></div>
+    <p class="proj-desc">Exploratory study investigating counselors' perceptions and stakeholder perspectives on implementing VR exposure therapy in clinical settings.</p>
+    <ul>
+      <li>Conducted and analyzed interviews with counselors on VR technology adoption in counseling settings</li>
+      <li>Facilitated a stakeholder workshop with VR developers, program-planning artists, medical professionals, and designers</li>
+    </ul>
+  </div>
+</main>
+
+<footer>© 2026 Sieun Kim · sieunkim@kaist.ac.kr · Daejeon, Republic of Korea</footer>
+
+</body>
+</html>
