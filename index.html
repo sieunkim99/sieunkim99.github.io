@@ -13,9 +13,9 @@
     --text:#1a1a1a;
     --muted:#6b6b6b;
     --faint:#9a9a9a;
-    --accent:#2b4c7e;
-    --accent-dark:#1e3a63;
-    --accent-bg:#f1f4f8;
+    --accent:#1a1a1a;
+    --accent-dark:#000000;
+    --accent-bg:#f2f2f0;
     --border:#e8e6e3;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
@@ -63,9 +63,8 @@
   /* research questions — one at a time, click to advance */
   .rq-section{padding:64px 0 80px;}
   .rq-kicker{
-    font-family:'Inter',sans-serif;font-size:13px;font-weight:700;
-    letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
-    text-align:center;margin-bottom:22px;
+    font-family:'Source Serif 4',serif;font-style:italic;font-size:18px;
+    color:var(--muted);text-align:center;margin-bottom:22px;
   }
   .rq-stage{max-width:640px;margin:0 auto;perspective:900px;}
   .rq-card{
@@ -144,16 +143,16 @@
 
   <!-- ================= RESEARCH QUESTIONS ================= -->
   <section class="rq-section">
-    <div class="rq-kicker">Research Questions</div>
+    <div class="rq-kicker">things I keep wondering about…</div>
     <div class="rq-stage">
-      <div class="rq-card" id="rqCard" style="--qc:#2b4c7e;">
-        <span class="rq-num" id="rqNum">Question 01</span>
+      <div class="rq-card" id="rqCard" style="--qc:#1a1a1a;">
+        <span class="rq-num" id="rqNum">01</span>
         <div class="rq-text" id="rqText">How does interacting with AI affect people psychologically and socially?</div>
         <div class="rq-foot">
           <div class="rq-dots" id="rqDots">
             <span class="rq-dot on"></span><span class="rq-dot"></span><span class="rq-dot"></span>
           </div>
-          <span class="rq-hint">click for the next question →</span>
+          <span class="rq-hint">click for the next one →</span>
         </div>
       </div>
     </div>
@@ -165,11 +164,11 @@
 
 <script>
   const questions=[
-    {num:"Question 01",color:"#2b4c7e",
+    {num:"01",color:"#1a1a1a",
      text:"How does interacting with AI affect people psychologically and socially?"},
-    {num:"Question 02",color:"#5e7d4f",
+    {num:"02",color:"#1a1a1a",
      text:"As AI moves beyond a tool to a companion, how can humans maintain healthy relationships with it?"},
-    {num:"Question 03",color:"#b3552e",
+    {num:"03",color:"#1a1a1a",
      text:"What should be considered in designing AI that supports psychological and social well-being?"}
   ];
   let qi=0;
