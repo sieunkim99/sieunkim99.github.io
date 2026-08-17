@@ -16,6 +16,7 @@
     --accent-dark:#000000;
     --accent-bg:#f2f2f0;
     --border:#e8e6e3;
+    --rule:#cfcdc9;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;scroll-padding-top:70px;}
@@ -27,9 +28,9 @@
   .nav-inner{max-width:860px;margin:0 auto;padding:16px 24px 0;display:flex;align-items:flex-end;gap:6px;}
   .nav-name{font-family:'Source Serif 4',serif;font-weight:700;font-size:17px;margin-right:auto;color:var(--text);padding-bottom:10px;}
   .nav-name:hover{text-decoration:none;color:var(--accent);}
-  nav .nl{font-size:10px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);border:1px solid var(--text);border-bottom:none;background:#fff;padding:6px 13px 5px;transition:background .15s,color .15s;}
+  nav .nl{font-size:10px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);border:1px solid var(--text);border-bottom:none;background:var(--bg);padding:6px 13px 5px;transition:background .15s,color .15s;}
   nav .nl:hover{background:var(--accent-bg);color:var(--text);text-decoration:none;}
-  nav .nl.active{background:var(--text);color:#fff;}
+  nav .nl.active{background:var(--text);color:var(--bg);}
 
   main{max-width:860px;margin:0 auto;padding:0 24px 90px;}
   h1{font-family:'Source Serif 4',serif;font-size:34px;font-weight:700;padding-top:56px;margin-bottom:28px;}
@@ -97,7 +98,7 @@
     border:1px solid var(--border);color:var(--muted);
   }
   a.rel-chip:hover{border-color:var(--accent);color:var(--accent);text-decoration:none;background:var(--accent-bg);}
-  span.rel-chip{background:#f7f6f4;}
+  span.rel-chip{background:var(--accent-bg);}
 
   footer{border-top:1px solid var(--border);margin-top:40px;padding:28px 24px;text-align:center;font-size:13px;color:var(--faint);}
 
@@ -113,6 +114,15 @@
     .proj-period{font-size:11.5px;}
     .proj-detail ul{padding-left:12px;}
   }
+
+  /* paper (newsprint) mode */
+  body.paper{
+    --bg:#f3efe4;--text:#221e15;--muted:#6c6557;--faint:#9a927e;
+    --accent:#221e15;--accent-dark:#000000;--accent-bg:#e9e3d2;
+    --border:#ddd6c3;--rule:#b9b09b;
+  }
+  body.paper nav{background:rgba(243,239,228,.94);}
+  nav button.nl{cursor:pointer;font-family:'Inter',sans-serif;}
 </style>
 </head>
 <body>
@@ -124,6 +134,7 @@
     <a class="nl active" href="projects.html">Projects</a>
     <a class="nl" href="education.html">Education</a>
     <a class="nl" href="https://docs.google.com/document/d/1PwGmC8K4dfIP5ygLwewsmuh0QVBEDHvkvM1Wt_JcWec/edit?tab=t.0" target="_blank" rel="noopener">CV</a>
+    <button class="nl" id="modeBtn" type="button" aria-label="Toggle paper mode">Paper</button>
   </div>
 </nav>
 
@@ -315,6 +326,19 @@
   });
   document.querySelectorAll('.proj-head').forEach(h=>{
     h.addEventListener('click',()=>{h.parentElement.classList.toggle('open');});
+  });
+
+  const mb=document.getElementById('modeBtn');
+  function applyMode(m){
+    document.body.classList.toggle('paper',m==='paper');
+    mb.textContent=(m==='paper')?'Screen':'Paper';
+  }
+  let mode=localStorage.getItem('skMode')||'screen';
+  applyMode(mode);
+  mb.addEventListener('click',()=>{
+    mode=(mode==='paper')?'screen':'paper';
+    localStorage.setItem('skMode',mode);
+    applyMode(mode);
   });
 </script>
 </body>
